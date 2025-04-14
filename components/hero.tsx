@@ -80,6 +80,7 @@ const Hero = () => {
                     quality={100}
                     width={500}
                     height={500}
+                    priority
                     className="rounded-full lg:rounded-xl object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>

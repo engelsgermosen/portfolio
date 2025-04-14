@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Recursive } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
 import Header from "@/components/header";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const recursive = Recursive({
   weight: ["300", "400", "700", "900"],
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="scroll-smooth">
+    <html lang="es" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${recursive.className} antialiased`}>
         <ThemeProvider
           attribute="class"
