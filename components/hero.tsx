@@ -51,7 +51,7 @@ const Hero = () => {
                 <Github className="h-6 w-6" />
                 <span className="sr-only">GitHub</span>
               </Link>
-              <Link
+              {/* <Link
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noreferrer"
@@ -59,7 +59,7 @@ const Hero = () => {
               >
                 <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
-              </Link>
+              </Link> */}
               <Link
                 href="mailto:mrengels2648@gmail.com"
                 className="hover:text-primary transition-colors"
