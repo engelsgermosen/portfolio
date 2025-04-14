@@ -11,10 +11,10 @@ interface SideBarProps {
 
 const SideBar = ({ handleChange }: SideBarProps) => {
   const menuItems = [
-    { href: "#about", label: "About", icon: Home },
-    { href: "#projects", label: "Projects", icon: Briefcase },
-    { href: "#skills", label: "Skills", icon: Code },
-    { href: "#contact", label: "Contact", icon: Mail },
+    { href: "/#about", label: "About", icon: Home },
+    { href: "/#projects", label: "Projects", icon: Briefcase },
+    { href: "/#skills", label: "Skills", icon: Code },
+    { href: "/#contact", label: "Contact", icon: Mail },
   ];
 
   return (
@@ -100,7 +100,7 @@ const SideBar = ({ handleChange }: SideBarProps) => {
           className="mt-8"
         >
           <a
-            href="#contact"
+            href="/#contact"
             onClick={handleChange}
             className="group flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 p-4 text-center font-medium text-white shadow-lg shadow-purple-500/20 transition-all hover:shadow-xl hover:shadow-purple-500/30"
           >

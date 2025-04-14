@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Recursive, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import Header from "@/components/header";
 
 const recursive = Recursive({
   weight: ["300", "400", "700", "900"],
@@ -38,7 +39,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <div className="flex min-h-screen flex-col">
+            <Header />
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

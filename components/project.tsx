@@ -9,29 +9,11 @@ import {
   CardTitle,
 } from "./ui/card";
 import Image from "next/image";
-
-const projectos = [
-  {
-    id: 1,
-    image: "/EGshop.png",
-    title: "EGmarket - Mira las 100 criptomonedas mas importantes",
-    text: "Pagina web para ver las 100 criptomonedas mas importantes del mercado, con su respectivo precio, capitalizacion de mercado y volumen de 24 horas.",
-  },
-  {
-    id: 2,
-    image: "/egMarket.png",
-    title: "EGshop - Tienda de ropa online",
-    text: "Tienda en linea con una api de pruebas que devuelve una lista de productos donde puedes filtrar por categoria, ordenar por precio y buscar por su descripcion.",
-  },
-  {
-    id: 3,
-    image: "/weatherApp.png",
-    title: "WeatherApp - Aplicacion del clima",
-    text: "Pagina web para ver el clima de cualquier ciudad del mundo, solo tienes que ingresar el nombre de la ciudad y listo.",
-  },
-];
+import { Projects } from "@/app/data/projects";
 
 const Project = () => {
+  const projectos = Projects;
+
   return (
     <section id="projects" className="py-24 md:py-32 bg-muted/30 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#9c5bdb]/5 to-transparent pointer-events-none"></div>
@@ -56,18 +38,21 @@ const Project = () => {
                   <Image
                     alt={`${project.title}`}
                     className="aspect-video w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
-                    height="225"
+                    height={225}
                     src={
-                      project.image || "/placeholder.svg?height=400&width=600"
+                      project.images[0] ||
+                      "/placeholder.svg?height=400&width=600"
                     }
-                    width="400"
+                    width={600}
                     quality={100}
                   />
                 </div>
               </CardHeader>
               <CardContent className="p-6 grow">
                 <CardTitle className="text-xl mb-2">{project.title}</CardTitle>
-                <p className="text-sm text-muted-foreground">{project.text}</p>
+                <p className="text-sm text-muted-foreground">
+                  {project.description}
+                </p>
               </CardContent>
               <CardFooter className="p-6 pt-0">
                 <Button
@@ -75,7 +60,10 @@ const Project = () => {
                   variant="outline"
                   className="w-full rounded-full group"
                 >
-                  <Link href="#" className="flex items-center justify-center">
+                  <Link
+                    href={`/project/${project.id}`}
+                    className="flex items-center justify-center"
+                  >
                     More Details
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>

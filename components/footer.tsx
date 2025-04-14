@@ -5,14 +5,14 @@ const Footer = () => {
   return (
     <footer className="border-t py-12 bg-muted/30">
       <div className="container flex flex-col items-center justify-around gap-4 md:flex-row mx-auto">
-        <div className="flex flex-col items-center gap-2 md:items-start mx-auto">
+        <div className="flex items-center gap-2 md:items-start">
           <Link href="/" className="font-bold text-xl flex items-center">
             <span className="relative z-10 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] text-transparent bg-clip-text animate-[gradient_8s_ease-in-out_infinite]">
               Engels<strong className="font-extrabold">DEV</strong>
             </span>
           </Link>
         </div>
-        <div>
+        <div className="flex items-center">
           <p className="text-center text-sm text-muted-foreground md:text-left">
             © {new Date().getFullYear()} All rights reserved.
           </p>
