@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import { Recursive, Inter } from "next/font/google";
+import { Recursive } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import Header from "@/components/header";
 
 const recursive = Recursive({
   weight: ["300", "400", "700", "900"],
-  subsets: ["latin"],
-});
-
-const inter = Inter({
-  weight: ["200", "400", "700"],
   subsets: ["latin"],
 });
 

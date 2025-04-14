@@ -92,21 +92,20 @@ const SideBar = ({ handleChange }: SideBarProps) => {
           ))}
         </nav>
 
-        {/* Call to action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, type: "spring" }}
           className="mt-8"
         >
-          <a
+          <Link
             href="/#contact"
             onClick={handleChange}
             className="group flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 p-4 text-center font-medium text-white shadow-lg shadow-purple-500/20 transition-all hover:shadow-xl hover:shadow-purple-500/30"
           >
             Get in touch
             <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
+          </Link>
         </motion.div>
       </div>
 

@@ -68,7 +68,7 @@ const Contact = () => {
             Contact Me
           </h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            Let's work together on your next project
+            Let&apos;s work together on your next project
           </p>
         </div>
         <div className="mx-auto max-w-2xl mt-16 animate-fade-in">

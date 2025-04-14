@@ -1,4 +1,4 @@
-import { Code, Palette, Server, Zap } from "lucide-react";
+import { Code, Server, Zap } from "lucide-react";
 import { Card } from "./ui/card";
 
 const Skills = () => {

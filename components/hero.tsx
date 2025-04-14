@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Download, ArrowRight } from "lucide-react";
+import { Github, Mail, Download, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
@@ -15,10 +15,10 @@ const Hero = () => {
           <div className="flex flex-col justify-center space-y-6 animate-fade-in">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Hi, I'm <span className="gradient-name">Engels</span>
+                Hi, I&apos;m <span className="gradient-name">Engels</span>
               </h1>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                I'm a web developer passionate about creating beautiful and
+                I&apos;m a web developer passionate about creating beautiful and
                 functional websites that deliver exceptional user experiences.
               </p>
             </div>

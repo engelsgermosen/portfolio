@@ -11,10 +11,9 @@ import {
   Github,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { projectProps, Projects } from "@/app/data/projects";
+import { projectProps } from "@/app/data/projects";
 
 const ProjectDetails = ({
-  id,
   images,
   description,
   title,
