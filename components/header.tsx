@@ -5,13 +5,18 @@ import { Button } from "./ui/button";
 import { Menu } from "lucide-react";
 import SideBar from "./side-bar";
 import { useState } from "react";
+import NavLinks from "./nav-links";
 
 const Header = () => {
   const [active, setActive] = useState<boolean>(false);
 
+  const handleChange = () => {
+    setActive(!active);
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-3">
-      {active && <SideBar />}
+      {active && <SideBar handleChange={handleChange} />}
       <div className="container flex h-16 items-center justify-between mx-auto">
         <Link href="/" className="font-bold text-xl flex items-center">
           <span className="relative z-10 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] text-transparent bg-clip-text animate-[gradient_8s_ease-in-out_infinite]">
@@ -19,44 +24,19 @@ const Header = () => {
           </span>
         </Link>
         <nav className="hidden md:flex gap-8">
-          <Link
-            href="#about"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            About
-          </Link>
-          <Link
-            href="#projects"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            Projects
-          </Link>
-          <Link
-            href="#skills"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            Skills
-          </Link>
-          <Link
-            href="#contact"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            Contact
-          </Link>
+          <NavLinks />
         </nav>
         <div className="flex gap-3 items-center">
           <ToggleTheme />
-          <Button asChild size="sm" className="rounded-full">
+          <Button asChild size="sm" className="rounded-full hidden sm:flex">
             <Link href="#contact">Contact Me</Link>
           </Button>
           <div className="flex md:hidden">
             <Button
-              className="bg-transparent"
-              onClick={() => {
-                setActive(!active);
-              }}
+              className="bg-transparent border-2 rounded-xl"
+              onClick={handleChange}
             >
-              <Menu />
+              <Menu className="bg-slate-950" />
             </Button>
           </div>
         </div>

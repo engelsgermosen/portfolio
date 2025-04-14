@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
+import Image from "next/image";
 
 const projectos = [
   {
@@ -52,20 +53,20 @@ const Project = () => {
             >
               <CardHeader className="p-0">
                 <div className="overflow-hidden">
-                  <img
-                    alt={`Project ${project}`}
+                  <Image
+                    alt={`${project.title}`}
                     className="aspect-video w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
                     height="225"
-                    src={project.image}
+                    src={
+                      project.image || "/placeholder.svg?height=400&width=600"
+                    }
                     width="400"
+                    quality={100}
                   />
                 </div>
               </CardHeader>
-              <CardContent className="p-6">
-                <CardTitle className="text-xl mb-2">
-                  Project {project.title}
-                </CardTitle>
-
+              <CardContent className="p-6 grow">
+                <CardTitle className="text-xl mb-2">{project.title}</CardTitle>
                 <p className="text-sm text-muted-foreground">{project.text}</p>
               </CardContent>
               <CardFooter className="p-6 pt-0">
