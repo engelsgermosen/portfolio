@@ -45,9 +45,16 @@ const ProjectDetails = ({
 
   return (
     <main onClick={handleOuterClick}>
-      <div
+      <motion.div
         className="max-w-5xl z-10 mx-auto my-3 md:my-6"
         onClick={(e) => e.stopPropagation()}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.3,
+          delay: 0.1,
+          ease: "easeOut",
+        }}
       >
         <div className="overflow-hidden rounded-xl bg-card shadow-xl shadow-foreground/5">
           {/* Image Carousel */}
@@ -160,7 +167,7 @@ const ProjectDetails = ({
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </main>
   );
 };
