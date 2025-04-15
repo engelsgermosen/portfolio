@@ -35,7 +35,11 @@ const Hero = () => {
                 size="lg"
                 className="rounded-full gradient-border"
               >
-                <Link href="/resume.pdf" className="flex items-center">
+                <Link
+                  href="/cv/Engels_Germosen_Cv2-Orange.pdf"
+                  className="flex items-center"
+                  download
+                >
                   <Download className="mr-2 h-4 w-4" />
                   Download CV
                 </Link>
