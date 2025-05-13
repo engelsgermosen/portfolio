@@ -1,4 +1,4 @@
-import { Github, Mail, Download, ArrowRight } from "lucide-react";
+import { Github, Mail, Download, ArrowRight, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
@@ -55,15 +55,15 @@ const Hero = () => {
                 <Github className="h-6 w-6" />
                 <span className="sr-only">GitHub</span>
               </Link>
-              {/* <Link
-                href="https://linkedin.com"
+              <Link
+                href="https://www.linkedin.com/in/engels-germosen-4a08b5354/"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-primary transition-colors"
               >
                 <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
-              </Link> */}
+              </Link>
               <Link
                 href="mailto:mrengels2648@gmail.com"
                 className="hover:text-primary transition-colors"

@@ -20,7 +20,7 @@ export const Projects: projectProps[] = [
       "/netbank/bene.png",
       "/netbank/advance.png",
     ],
-    title: "NetBank1 - Tu socio financiero digital",
+    title: "NetBank - Tu socio financiero digital",
     description:
       "Descubre NetBank, la plataforma web revolucionaria para una banca digital segura e intuitiva. Gestiona tus finanzas, accede a servicios personalizados y disfruta de la experiencia bancaria del futuro.",
     tecnologies: ["C#", ".NET", "MSSQL", "Razor"],
