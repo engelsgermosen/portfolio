@@ -20,6 +20,8 @@ const Contact = () => {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
   const [isSent, setIsSent] = useState<boolean>(false);
 
   const handleChange = (
@@ -35,7 +37,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setIsSubmitting(true);
     try {
       emailjs.init("h44gOczMwSZS3CZwA");
 
@@ -55,9 +57,11 @@ const Contact = () => {
         subject: "",
         message: "",
       });
-      setTimeout(() => setIsSent(false), 3000);
     } catch (error) {
       console.error("Error al enviar el correo:", error);
+    } finally {
+      setTimeout(() => setIsSent(false), 3000);
+      setIsSubmitting(false);
     }
   };
 
@@ -152,7 +156,7 @@ const Contact = () => {
                   type="submit"
                   size="lg"
                   className="rounded-full w-full cursor-pointer"
-                  disabled={isSent}
+                  disabled={isSubmitting}
                 >
                   Send Message
                 </Button>
