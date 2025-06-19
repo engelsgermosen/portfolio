@@ -53,6 +53,12 @@ const Contact = () => {
       );
       console.log("Correo enviado exitosamente:", response.text);
       setIsSent(true);
+      setEmail({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
       setTimeout(() => setIsSent(false), 3000);
     } catch (error) {
       console.error("Error al enviar el correo:", error);
