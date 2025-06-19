@@ -46,12 +46,8 @@ const Contact = () => {
         message: email.message,
       };
 
-      const response = await emailjs.send(
-        "service_4uqkr5b",
-        "template_gdrw09o",
-        templateParams
-      );
-      console.log("Correo enviado exitosamente:", response.text);
+      await emailjs.send("service_4uqkr5b", "template_gdrw09o", templateParams);
+
       setIsSent(true);
       setEmail({
         name: "",
@@ -156,6 +152,7 @@ const Contact = () => {
                   type="submit"
                   size="lg"
                   className="rounded-full w-full cursor-pointer"
+                  disabled={isSent}
                 >
                   Send Message
                 </Button>
