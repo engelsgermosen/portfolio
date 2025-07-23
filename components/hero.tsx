@@ -36,7 +36,7 @@ const Hero = () => {
                 className="rounded-full gradient-border"
               >
                 <Link
-                  href="/cv/Engels_Germosen_Cv2-Orange.pdf"
+                  href="/cv/EngelsGermosenCv.pdf"
                   className="flex items-center"
                   download
                 >
