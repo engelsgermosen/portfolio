@@ -147,7 +147,7 @@ const ProjectDetails = ({
                   className="group inline-flex items-center gap-2 rounded-lg border border-border bg-secondary px-4 py-2 text-secondary-foreground transition-all hover:border-primary/50 hover:bg-secondary/80"
                 >
                   <Github className="h-5 w-5 transition-transform group-hover:scale-110" />
-                  View Code
+                  Ver Código
                   <span className="ml-1 block h-1.5 w-1.5 rounded-full bg-primary"></span>
                 </a>
               )}
@@ -160,7 +160,7 @@ const ProjectDetails = ({
                   className="group inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-primary-foreground shadow-md shadow-primary/10 transition-all hover:shadow-lg hover:shadow-primary/20"
                 >
                   <ExternalLink className="h-5 w-5 transition-transform group-hover:scale-110" />
-                  Live Demo
+                  Ver en Vivo
                   <span className="ml-1 block h-1.5 w-1.5 rounded-full bg-primary-foreground"></span>
                 </a>
               )}

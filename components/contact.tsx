@@ -71,10 +71,10 @@ const Contact = () => {
       <div className="container px-4 md:px-6 relative mx-auto">
         <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
           <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-5xl gradient-text">
-            Contact Me
+            Contáctame
           </h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            Let&apos;s work together on your next project
+            Trabajemos juntos en tu próximo proyecto
           </p>
         </div>
         <div className="mx-auto max-w-2xl mt-16 animate-fade-in">
@@ -96,7 +96,7 @@ const Contact = () => {
                       value={email.name}
                       onChange={handleChange}
                       className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      placeholder="Your name"
+                      placeholder="Tu nombre"
                     />
                   </div>
                   <div className="grid gap-2">
@@ -114,7 +114,7 @@ const Contact = () => {
                       value={email.email}
                       onChange={handleChange}
                       className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      placeholder="Your email"
+                      placeholder="Tu correo electrónico"
                     />
                   </div>
                 </div>
@@ -132,7 +132,7 @@ const Contact = () => {
                     value={email.subject}
                     onChange={handleChange}
                     className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Subject"
+                    placeholder="Asunto"
                   />
                 </div>
                 <div className="grid gap-2">
@@ -149,7 +149,7 @@ const Contact = () => {
                     value={email.message}
                     onChange={handleChange}
                     className="flex min-h-[150px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Your message"
+                    placeholder="Tu mensaje"
                   />
                 </div>
                 <Button
@@ -158,7 +158,7 @@ const Contact = () => {
                   className="rounded-full w-full cursor-pointer"
                   disabled={isSubmitting}
                 >
-                  Send Message
+                  Enviar Mensaje
                 </Button>
               </form>
             </CardContent>

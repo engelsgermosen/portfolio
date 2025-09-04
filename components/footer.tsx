@@ -14,7 +14,7 @@ const Footer = () => {
         </div>
         <div className="flex items-center">
           <p className="text-center text-sm text-muted-foreground md:text-left">
-            © {new Date().getFullYear()} All rights reserved.
+            © {new Date().getFullYear()} Todos los derechos reservados.
           </p>
         </div>
         <div className="flex items-center gap-6">

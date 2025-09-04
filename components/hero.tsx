@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 const Hero = () => {
   return (
     <section
-      id="about"
+      id="hero"
       className="py-24 md:py-32 lg:py-40 relative overflow-hidden min-h-screen flex items-center"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-[#9c5bdb]/15 to-transparent pointer-events-none"></div>
@@ -27,7 +27,7 @@ const Hero = () => {
             <div className="flex flex-col gap-3 min-[400px]:flex-row">
               <Button asChild size="lg" className="rounded-full group">
                 <Link href="#projects" className="flex items-center">
-                  View My Work
+                  Mira mis proyectos
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -43,7 +43,7 @@ const Hero = () => {
                   download
                 >
                   <Download className="mr-2 h-4 w-4" />
-                  Download CV
+                  Descargar CV
                 </Link>
               </Button>
             </div>

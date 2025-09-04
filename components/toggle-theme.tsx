@@ -32,19 +32,19 @@ const ToggleTheme = () => {
           className="cursor-pointer"
           onClick={() => setTheme("light")}
         >
-          Light
+          Claro
         </DropdownMenuItem>
         <DropdownMenuItem
           className="cursor-pointer"
           onClick={() => setTheme("dark")}
         >
-          Dark
+          Oscuro
         </DropdownMenuItem>
         <DropdownMenuItem
           className="cursor-pointer"
           onClick={() => setTheme("system")}
         >
-          System
+          Sistema
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

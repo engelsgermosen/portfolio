@@ -1,6 +1,14 @@
 "use client";
 
-import { X, Home, Briefcase, Code, Mail, ExternalLink } from "lucide-react";
+import {
+  X,
+  Home,
+  Briefcase,
+  Code,
+  Mail,
+  ExternalLink,
+  User,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -11,10 +19,10 @@ interface SideBarProps {
 
 const SideBar = ({ handleChange }: SideBarProps) => {
   const menuItems = [
-    { href: "/#about", label: "About", icon: Home },
-    { href: "/#projects", label: "Projects", icon: Briefcase },
-    { href: "/#skills", label: "Skills", icon: Code },
-    { href: "/#contact", label: "Contact", icon: Mail },
+    { href: "/#projects", label: "Proyectos", icon: Briefcase },
+    { href: "/#skills", label: "Habilidades", icon: Code },
+    { href: "/#about", label: "Sobre mí", icon: User },
+    { href: "/#contact", label: "Contacto", icon: Mail },
   ];
 
   return (
@@ -34,14 +42,16 @@ const SideBar = ({ handleChange }: SideBarProps) => {
 
       {/* Header */}
       <div className="relative flex items-center justify-between border-b border-white/10 px-8 py-6">
-        <motion.span
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.1 }}
-          className="relative z-10 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-[length:200%_auto] text-transparent bg-clip-text text-2xl font-medium animate-[gradient_8s_ease-in-out_infinite]"
-        >
-          Engels<strong className="font-extrabold">DEV</strong>
-        </motion.span>
+        <Link href="/" onClick={handleChange} className="flex items-center">
+          <motion.span
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+            className="relative z-10 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-[length:200%_auto] text-transparent bg-clip-text text-2xl font-medium animate-[gradient_8s_ease-in-out_infinite]"
+          >
+            Engels<strong className="font-extrabold">DEV</strong>
+          </motion.span>
+        </Link>
         <motion.div
           initial={{ opacity: 0, rotate: -90 }}
           animate={{ opacity: 1, rotate: 0 }}

@@ -29,7 +29,7 @@ const Header = () => {
         <div className="flex gap-3 items-center">
           <ToggleTheme />
           <Button asChild size="sm" className="rounded-full hidden sm:flex">
-            <Link href="#contact">Contact Me</Link>
+            <Link href="#contact">Contáctame</Link>
           </Button>
           <div className="flex md:hidden">
             <Button

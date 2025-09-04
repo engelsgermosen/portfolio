@@ -20,10 +20,10 @@ const Project = () => {
       <div className="container px-4 md:px-6 relative mx-auto">
         <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
           <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-5xl gradient-text">
-            Projects
+            Proyectos
           </h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            Check out some of my recent work
+            Echa un vistazo a algunos de mis trabajos recientes
           </p>
         </div>
         <div className="mx-auto grid justify-center gap-8 md:grid-cols-2 md:max-w-[64rem] xl:grid-cols-3 mt-16">
@@ -64,7 +64,7 @@ const Project = () => {
                     href={`/project/${project.id}`}
                     className="flex items-center justify-center"
                   >
-                    More Details
+                    Ver proyecto
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>

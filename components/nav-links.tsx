@@ -5,28 +5,28 @@ export const NavLinks = () => {
   return (
     <>
       <Link
-        href="/#about"
-        className="text-sm font-medium hover:text-primary transition-colors"
-      >
-        About
-      </Link>
-      <Link
         href="/#projects"
         className="text-sm font-medium hover:text-primary transition-colors"
       >
-        Projects
+        Proyectos
       </Link>
       <Link
         href="/#skills"
         className="text-sm font-medium hover:text-primary transition-colors"
       >
-        Skills
+        Habilidades
+      </Link>
+      <Link
+        href="/#about"
+        className="text-sm font-medium hover:text-primary transition-colors"
+      >
+        Sobre mí
       </Link>
       <Link
         href="/#contact"
         className="text-sm font-medium hover:text-primary transition-colors"
       >
-        Contact
+        Contacto
       </Link>
     </>
   );
