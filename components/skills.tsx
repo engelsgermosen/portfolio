@@ -24,8 +24,19 @@ const RatingStars = ({ level }: { level: number }) => {
   );
 };
 
+interface ICategory {
+  title: string;
+  icon: React.ReactNode;
+  skills: ISkill[];
+}
+
+interface ISkill {
+  name: string;
+  level: number;
+}
+
 const Skills = () => {
-  const categories = [
+  const categories: ICategory[] = [
     {
       title: "Stack principal",
       icon: <Star className="h-8 w-8 mb-3 text-primary" />,
@@ -107,7 +118,7 @@ const Skills = () => {
                         {primary.title}
                       </h3>
                       <ul className="w-full space-y-2 text-left max-w-xl">
-                        {primary.skills.map((skill: any, i: number) => (
+                        {primary.skills.map((skill: ISkill, i: number) => (
                           <li
                             key={i}
                             className="flex items-center justify-between gap-4"
@@ -143,7 +154,7 @@ const Skills = () => {
                       </h3>
                       <ul className="w-full space-y-3 text-left">
                         {category.skills.map(
-                          (skill: any, skillIndex: number) => (
+                          (skill: ISkill, skillIndex: number) => (
                             <li
                               key={skillIndex}
                               className="flex items-center justify-between gap-4"

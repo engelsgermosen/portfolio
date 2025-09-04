@@ -1,14 +1,6 @@
 "use client";
 
-import {
-  X,
-  Home,
-  Briefcase,
-  Code,
-  Mail,
-  ExternalLink,
-  User,
-} from "lucide-react";
+import { X, Briefcase, Code, Mail, ExternalLink, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
