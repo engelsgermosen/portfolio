@@ -7,19 +7,21 @@ const Hero = () => {
   return (
     <section
       id="about"
-      className="py-24 md:py-32 lg:py-40 relative overflow-hidden"
+      className="py-24 md:py-32 lg:py-40 relative overflow-hidden min-h-screen flex items-center"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-[#9c5bdb]/15 to-transparent pointer-events-none"></div>
       <div className="container px-4 md:px-6 relative mx-auto">
-        <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-          <div className="flex flex-col justify-center space-y-6 animate-fade-in">
+        <div className="flex flex-col-reverse gap-6 lg:flex-row lg:gap-12">
+          <div className="flex flex-col justify-center space-y-6 animate-fade-in lg:w-1/2 lg:pt-8 lg:pl-10">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Hi, I&apos;m <span className="gradient-name">Engels</span>
+                Hola, Soy <span className="gradient-name">Engels</span>
               </h1>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                I&apos;m a web developer passionate about creating beautiful and
-                functional websites that deliver exceptional user experiences.
+                Desarrollador full‑stack: backend sólido con C#/.NET y frontend
+                con React/Next.js. Más de 1.5 años construyendo proyectos
+                personales y entregando experiencias web centradas en el
+                usuario.
               </p>
             </div>
             <div className="flex flex-col gap-3 min-[400px]:flex-row">
@@ -45,7 +47,7 @@ const Hero = () => {
                 </Link>
               </Button>
             </div>
-            <div className="flex items-center gap-6 pt-4">
+            <div className="flex items-center gap-6 pt-4 justify-center lg:justify-start">
               <Link
                 href="https://github.com/engelsgermosen"
                 target="_blank"
@@ -73,7 +75,7 @@ const Hero = () => {
               </Link>
             </div>
           </div>
-          <div className="flex items-center justify-center animate-fade-in">
+          <div className="flex items-center justify-center animate-fade-in lg:w-1/2">
             <div className="relative">
               <div className="absolute -inset-1 md:-inset-2 rounded-full lg:rounded-3xl bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-[gradient_8s_ease-in-out_infinite] blur-md"></div>
               <div className="relative inline-block p-0.5 rounded-full lg:rounded-2xl bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-[gradient_8s_ease-in-out_infinite] transition-all duration-500 hover:scale-105 group">
@@ -82,8 +84,8 @@ const Hero = () => {
                     src="/yo.jpeg"
                     alt="Engels"
                     quality={100}
-                    width={500}
-                    height={500}
+                    width={400}
+                    height={400}
                     priority
                     className="rounded-full lg:rounded-xl object-cover transition-transform duration-500 group-hover:scale-110"
                   />

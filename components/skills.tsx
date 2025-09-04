@@ -11,17 +11,18 @@ const Skills = () => {
             Skills
           </h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            Technologies and tools I work with
+            Tecnologias y herramientas que utilizo para crear aplicaciones web
+            modernas y eficientes.
           </p>
         </div>
-        <div className="mx-auto grid grid-cols-1 justify-center gap-8 md:grid-cols-3 md:max-w-[64rem]  mt-16">
+        <div className="mx-auto grid grid-cols-1 justify-center gap-8 lg:grid-cols-3 md:max-w-[64rem]  mt-16">
           {[
             {
               title: "Frontend",
               icon: <Code className="h-10 w-10 mb-4 text-primary" />,
               skills: [
                 "HTML5 & CSS3",
-                "JavaScript",
+                "JavaScript & TypeScript",
                 "React.js",
                 "Next.js",
                 "Tailwind CSS",
@@ -30,12 +31,25 @@ const Skills = () => {
             {
               title: "Backend",
               icon: <Server className="h-10 w-10 mb-4 text-primary" />,
-              skills: ["C#", ".Net", "MongoDB", "MSSQL", "RESTful APIs"],
+              skills: [
+                "C# & .Net",
+                "Node.js & Express",
+                "NestJs",
+                "Sql Server & PostgreSQL",
+                "MongoDb",
+                "RESTful APIs",
+              ],
             },
             {
               title: "Tools",
               icon: <Zap className="h-10 w-10 mb-4 text-primary" />,
-              skills: ["Git & GitHub", "VS Code", "Vercel", "Terminal"],
+              skills: [
+                "Git & GitHub",
+                "Docker",
+                "VS Code",
+                "Vercel",
+                "Terminal",
+              ],
             },
           ].map((category, index) => (
             <Card
