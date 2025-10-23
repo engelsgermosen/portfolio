@@ -7,13 +7,11 @@ import Skills from "@/components/skills";
 export default function Home() {
   return (
     <>
-      <main className="flex-1">
-        <Hero />
-        <Project />
-        <Skills />
-        <About />
-        <Contact />
-      </main>
+      <Hero />
+      <Project />
+      <Skills />
+      <About />
+      <Contact />
     </>
   );
 }
