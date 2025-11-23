@@ -22,12 +22,12 @@ export const NavLinks = () => {
       >
         Sobre mí
       </Link>
-      <Link
+      {/* <Link
         href="/#contact"
         className="text-sm font-medium hover:text-primary transition-colors"
       >
         Contacto
-      </Link>
+      </Link> */}
     </>
   );
 };
