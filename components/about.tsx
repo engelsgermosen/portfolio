@@ -6,7 +6,7 @@ const About = () => {
       id="about"
       className="py-24 md:py-32 lg:py-40 relative overflow-hidden min-h-screen flex items-center"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-[#9c5bdb]/15 to-transparent pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-primary/20 to-transparent pointer-events-none"></div>
       <div className="container px-4 md:px-6 relative mx-auto">
         <div className="flex flex-col justify-center items-center space-y-6 animate-fade-in">
           <div>

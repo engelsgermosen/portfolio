@@ -17,6 +17,12 @@ export const NavLinks = () => {
         Habilidades
       </Link>
       <Link
+        href="/#certifications"
+        className="text-sm font-medium hover:text-primary transition-colors"
+      >
+        Certificaciones
+      </Link>
+      <Link
         href="/#about"
         className="text-sm font-medium hover:text-primary transition-colors"
       >
