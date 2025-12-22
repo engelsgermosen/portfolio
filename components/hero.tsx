@@ -1,4 +1,11 @@
-import { Github, Mail, Download, ArrowRight, Linkedin } from "lucide-react";
+import {
+  Github,
+  Mail,
+  Download,
+  ArrowRight,
+  Linkedin,
+  Eye,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
@@ -32,10 +39,25 @@ const Hero = () => {
                 </Link>
               </Button>
               <Button
+                asChild
+                size="lg"
+                variant="secondary"
+                className="rounded-full group"
+              >
+                <Link
+                  href="/cv/EngelsGermosenCv.pdf"
+                  target="_blank"
+                  className="flex items-center"
+                >
+                  <Eye className="mr-2 h-4 w-4" />
+                  Ver CV
+                </Link>
+              </Button>
+              <Button
                 variant="outline"
                 asChild
                 size="lg"
-                className="rounded-full gradient-border"
+                className="rounded-full gradient-border hover:bg-primary/10"
               >
                 <Link
                   href="/cv/EngelsGermosenCv.pdf"
@@ -81,7 +103,7 @@ const Hero = () => {
               <div className="relative inline-block p-0.5 rounded-full lg:rounded-2xl bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-[gradient_8s_ease-in-out_infinite] transition-all duration-500 hover:scale-105 group">
                 <div className="overflow-hidden rounded-full lg:rounded-xl ring-1 ring-white/10 dark:ring-black/5">
                   <Image
-                    src="/yo.jpeg"
+                    src="/yo.jpg"
                     alt="Engels"
                     quality={100}
                     width={400}
