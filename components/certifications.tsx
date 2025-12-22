@@ -22,7 +22,7 @@ const Certifications = () => {
 
   return (
     <section id="certifications" className="py-24 md:py-32 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-primary/10 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-primary/10 pointer-events-none"></div>
       <div className="container px-4 md:px-6 relative mx-auto">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div className="inline-flex items-center justify-center p-2 bg-primary/10 rounded-full mb-2">

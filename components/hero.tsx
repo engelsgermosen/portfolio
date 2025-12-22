@@ -16,7 +16,7 @@ const Hero = () => {
       id="hero"
       className="py-24 md:py-32 lg:py-40 relative overflow-hidden min-h-screen flex items-center"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-[#9c5bdb]/15 to-transparent pointer-events-none"></div>
+      <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-[#9c5bdb]/15 to-transparent pointer-events-none"></div>
       <div className="container px-4 md:px-6 relative mx-auto">
         <div className="flex flex-col-reverse gap-6 lg:flex-row lg:gap-12">
           <div className="flex flex-col justify-center space-y-6 animate-fade-in lg:w-1/2 lg:pt-8 lg:pl-10">
@@ -31,7 +31,7 @@ const Hero = () => {
                 usuario.
               </p>
             </div>
-            <div className="flex flex-col gap-3 min-[400px]:flex-row">
+            <div className="flex flex-col gap-3 min-[520px]:flex-row">
               <Button asChild size="lg" className="rounded-full group">
                 <Link href="#projects" className="flex items-center">
                   Mira mis proyectos
@@ -99,8 +99,8 @@ const Hero = () => {
           </div>
           <div className="flex items-center justify-center animate-fade-in lg:w-1/2">
             <div className="relative">
-              <div className="absolute -inset-1 md:-inset-2 rounded-full lg:rounded-3xl bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-[gradient_8s_ease-in-out_infinite] blur-md"></div>
-              <div className="relative inline-block p-0.5 rounded-full lg:rounded-2xl bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-[gradient_8s_ease-in-out_infinite] transition-all duration-500 hover:scale-105 group">
+              <div className="absolute -inset-1 md:-inset-2 rounded-full lg:rounded-3xl bg-linear-to-r from-primary via-accent to-primary bg-size-[200%_auto] animate-[gradient_8s_ease-in-out_infinite] blur-md"></div>
+              <div className="relative inline-block p-0.5 rounded-full lg:rounded-2xl bg-linear-to-r from-primary via-accent to-primary bg-size-[200%_auto] animate-[gradient_8s_ease-in-out_infinite] transition-all duration-500 hover:scale-105 group">
                 <div className="overflow-hidden rounded-full lg:rounded-xl ring-1 ring-white/10 dark:ring-black/5">
                   <Image
                     src="/yo.jpg"
