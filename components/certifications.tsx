@@ -14,11 +14,13 @@ import { certifications } from "@/app/data/certifications";
 import { useState } from "react";
 
 const Certifications = () => {
-  const [showAll, setShowAll] = useState(false);
+  const [showAllMobile, setShowAllMobile] = useState(false);
+  const [showAllDesktop, setShowAllDesktop] = useState(false);
 
-  // En mobile mostrar solo 5, en desktop todas
-  const displayedCerts = showAll ? certifications : certifications.slice(0, 5);
-  const hasMore = certifications.length > 5;
+  const mobileCerts = showAllMobile ? certifications : certifications.slice(0, 5);
+  const desktopCerts = showAllDesktop ? certifications : certifications.slice(0, 10);
+  const hasMoreMobile = certifications.length > 5;
+  const hasMoreDesktop = certifications.length > 10;
 
   return (
     <section id="certifications" className="py-24 md:py-32 relative">
@@ -41,7 +43,7 @@ const Certifications = () => {
 
         {/* Mobile: mostrar según el estado */}
         <div className="grid grid-cols-1 gap-6 md:hidden">
-          {displayedCerts.map((cert) => (
+          {mobileCerts.map((cert) => (
             <Card
               key={cert.id}
               className="group hover:shadow-xl transition-all duration-300 overflow-hidden border-muted hover:border-primary/50"
@@ -123,9 +125,9 @@ const Certifications = () => {
           ))}
         </div>
 
-        {/* Desktop: mostrar todas */}
+        {/* Desktop: mostrar segun el estado */}
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {certifications.map((cert) => (
+          {desktopCerts.map((cert) => (
             <Card
               key={cert.id}
               className="group hover:shadow-xl transition-all duration-300 overflow-hidden border-muted hover:border-primary/50"
@@ -207,17 +209,44 @@ const Certifications = () => {
           ))}
         </div>
 
-        {/* Botón Ver más - solo en mobile */}
-        {hasMore && !showAll && (
-          <div className="mt-8 text-center md:hidden">
+        {/* Botón Ver más / Ver menos - desktop */}
+        {hasMoreDesktop && (
+          <div className="mt-8 text-center hidden md:block">
             <Button
-              onClick={() => setShowAll(true)}
+              onClick={() => setShowAllDesktop(!showAllDesktop)}
               variant="outline"
               size="lg"
               className="rounded-full group"
             >
-              Ver más certificaciones
-              <ChevronDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-1" />
+              {showAllDesktop
+                ? "Ver menos certificaciones"
+                : "Ver más certificaciones"}
+              <ChevronDown
+                className={`ml-2 h-4 w-4 transition-transform ${
+                  showAllDesktop ? "rotate-180" : "group-hover:translate-y-1"
+                }`}
+              />
+            </Button>
+          </div>
+        )}
+
+        {/* Botón Ver más / Ver menos - solo en mobile */}
+        {hasMoreMobile && (
+          <div className="mt-8 text-center md:hidden">
+            <Button
+              onClick={() => setShowAllMobile(!showAllMobile)}
+              variant="outline"
+              size="lg"
+              className="rounded-full group"
+            >
+              {showAllMobile
+                ? "Ver menos certificaciones"
+                : "Ver más certificaciones"}
+              <ChevronDown
+                className={`ml-2 h-4 w-4 transition-transform ${
+                  showAllMobile ? "rotate-180" : "group-hover:translate-y-1"
+                }`}
+              />
             </Button>
           </div>
         )}
