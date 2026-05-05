@@ -11,6 +11,24 @@ export interface projectProps {
 export const Projects: projectProps[] = [
   {
     id: 1,
+    images: ["/microcommerce/architecture.png", "/microcommerce/docker.png"],
+    title: "MicroCommerce - Plataforma E-Commerce con Microservicios",
+    description:
+      "Backend de e-commerce construido con arquitectura de microservicios en .NET 10. 9 servicios independientes comunicados via RabbitMQ, con bases de datos dedicadas por servicio (SQL Server, PostgreSQL, MongoDB, Redis), pagos con Stripe, emails con SendGrid y API Gateway con YARP.",
+    tecnologies: [
+      ".NET 10",
+      "Docker",
+      "RabbitMQ",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Stripe",
+      "YARP",
+    ],
+    github: "https://github.com/engelsgermosen/microservices-app",
+  },
+  {
+    id: 2,
     images: [
       "/netbank/login.png",
       "/netbank/admin.png",
@@ -28,7 +46,7 @@ export const Projects: projectProps[] = [
   },
 
   {
-    id: 2,
+    id: 3,
     images: [
       "/egShop/home.png",
       "/egShop/by.png",
@@ -46,7 +64,7 @@ export const Projects: projectProps[] = [
     github: "https://github.com/engelsgermosen/Shop",
   },
   {
-    id: 3,
+    id: 4,
     images: [
       "/egMarket/home.png",
       "/egMarket/crytos.png",
