@@ -74,20 +74,21 @@ const es = {
     eyebrow: "Sobre mí",
     tagline: "Autodidacta, construyendo sistemas serios",
     intro:
-      "Desarrollador full-stack enfocado en convertir ideas en productos web mantenibles y rápidos. Me importan la arquitectura limpia, la DX y que cada detalle de la interfaz se sienta fluido y accesible.",
+      "Desarrollador full-stack de Santo Domingo, RD. Me especializo en backends .NET con arquitectura limpia y microservicios, y frontends modernos con React y Flutter. Me importa que el código sea mantenible, que los sistemas aguanten carga y que cada detalle funcione bien.",
     howWorkTitle: "Cómo trabajo",
     howWork1:
-      "Diseño de APIs claras y escalables con .NET/C# o Node.js/JavaScript.",
-    howWork2: "Interfaces accesibles y performantes con React/Next.js.",
+      "Diseño e implemento APIs RESTful y servicios backend con .NET/C#, aplicando arquitectura limpia, CQRS y principios SOLID.",
+    howWork2:
+      "Construyo interfaces modernas y responsivas con React, Next.js y Flutter, centradas en la experiencia del usuario.",
     howWork3:
-      "Testing básico, control de versiones, CI/CD y documentación útil.",
+      "Gestiono bases de datos relacionales y no relacionales (PostgreSQL, SQL Server, Redis, MongoDB), control de versiones con Git y despliegue con Docker.",
     educationTitle: "Formación",
-    education1: "Desarrollo de Software — ITLA (2023–2025).",
+    education1: "Tecnólogo en Desarrollo de Software — ITLA (2023–2025).",
     education2:
-      "Complemento con cursos de APIs REST, bases de datos SQL/NoSQL y despliegue en la nube.",
+      "Certificación Foundational C# with Microsoft (2026). Azure Fundamentals AZ-900 en progreso. Cursos de arquitectura backend, APIs y bases de datos.",
     nowTitle: "Ahora mismo",
     nowText:
-      "Profundizando en apps en tiempo real con WebSockets, optimización de rendimiento en Next.js (SSR/ISR) y patrones de arquitectura limpia.",
+      "Desarrollando Rappix, una plataforma de delivery con microservicios en .NET 10, sagas con MassTransit, pagos con Stripe y tracking en tiempo real con SignalR. Buscando mi primer rol remoto como developer.",
     info: {
       locationLabel: "ubicación",
       locationValue: "Santo Domingo, RD",
@@ -96,7 +97,7 @@ const es = {
       levelLabel: "nivel",
       levelValue: "Junior · autodidacta",
       languagesLabel: "idiomas",
-      languagesValue: "Español · Inglés",
+      languagesValue: "Español · Inglés B1",
     },
   },
   contact: {
