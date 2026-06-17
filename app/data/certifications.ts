@@ -12,6 +12,16 @@ export interface ICertification {
 export const certifications: ICertification[] = [
   // C# y .NET
   {
+    id: 0,
+    title: "Foundational C# with Microsoft",
+    issuer: "Microsoft",
+    date: "Junio 2026",
+    credentialUrl:
+      "https://www.freecodecamp.org/certification/engelsgermosen/foundational-c-sharp-with-microsoft",
+    imageUrl: "/certifications/foundation-c#-with-microsoft",
+    skills: ["C#"],
+  },
+  {
     id: 1,
     title: "Fundamentos de .NET",
     issuer: "Platzi",
