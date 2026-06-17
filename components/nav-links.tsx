@@ -9,6 +9,12 @@ export const NavLinks = () => {
   return (
     <>
       <Link
+        href="/#experience"
+        className="text-sm font-medium hover:text-primary transition-colors"
+      >
+        {t.nav.experience}
+      </Link>
+      <Link
         href="/#projects"
         className="text-sm font-medium hover:text-primary transition-colors"
       >

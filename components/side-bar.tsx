@@ -1,6 +1,14 @@
 "use client";
 
-import { X, Briefcase, Code, Mail, ExternalLink, User } from "lucide-react";
+import {
+  X,
+  Briefcase,
+  Building2,
+  Code,
+  Mail,
+  ExternalLink,
+  User,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -14,6 +22,7 @@ const SideBar = ({ handleChange }: SideBarProps) => {
   const { t } = useTranslation();
 
   const menuItems = [
+    { href: "/#experience", label: t.nav.experience, icon: Building2 },
     { href: "/#projects", label: t.nav.projects, icon: Briefcase },
     { href: "/#skills", label: t.nav.skills, icon: Code },
     { href: "/#about", label: t.nav.about, icon: User },

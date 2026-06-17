@@ -4,6 +4,7 @@ import type { Dictionary } from "./index";
 // faltante o mal escrita falle en tiempo de compilación.
 const en: Dictionary = {
   nav: {
+    experience: "Experience",
     projects: "Projects",
     skills: "Skills",
     certifications: "Certifications",
@@ -16,7 +17,7 @@ const en: Dictionary = {
   hero: {
     greeting: "Hi, I'm",
     description:
-      "Full‑stack developer: solid backend with C#/.NET and frontend with React/Next.js. Over 1.5 years building personal projects and delivering user-focused web experiences.",
+      "Full-stack developer focused on .NET and React. I build scalable backends with clean architecture and modern frontends centered on user experience.",
     viewProjects: "See my projects",
     viewCv: "View CV",
     downloadCv: "Download CV",
@@ -53,7 +54,8 @@ const en: Dictionary = {
     intro:
       "Full-stack developer focused on turning ideas into maintainable, fast web products. I care about clean architecture, DX, and making every detail of the interface feel smooth and accessible.",
     howWorkTitle: "How I work",
-    howWork1: "Designing clear, scalable APIs with .NET/C# or Node.js/JavaScript.",
+    howWork1:
+      "Designing clear, scalable APIs with .NET/C# or Node.js/JavaScript.",
     howWork2: "Accessible, performant interfaces with React/Next.js.",
     howWork3: "Basic testing, version control, CI/CD and useful documentation.",
     educationTitle: "Education",

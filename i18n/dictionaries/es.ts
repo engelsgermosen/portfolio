@@ -2,6 +2,7 @@
 // `en.ts` se anota con este tipo para garantizar que tenga exactamente las mismas claves.
 const es = {
   nav: {
+    experience: "Experiencia",
     projects: "Proyectos",
     skills: "Habilidades",
     certifications: "Certificaciones",
@@ -14,7 +15,7 @@ const es = {
   hero: {
     greeting: "Hola, Soy",
     description:
-      "Desarrollador full‑stack: backend sólido con C#/.NET y frontend con React/Next.js. Más de 1.5 años construyendo proyectos personales y entregando experiencias web centradas en el usuario.",
+      "Desarrollador full-stack especializado en .NET y React. Construyo backends escalables con arquitectura limpia y frontends modernos centrados en la experiencia del usuario.",
     viewProjects: "Mira mis proyectos",
     viewCv: "Ver CV",
     downloadCv: "Descargar CV",
@@ -51,9 +52,11 @@ const es = {
     intro:
       "Desarrollador full-stack enfocado en convertir ideas en productos web mantenibles y rápidos. Me importan la arquitectura limpia, la DX y que cada detalle de la interfaz se sienta fluido y accesible.",
     howWorkTitle: "Cómo trabajo",
-    howWork1: "Diseño de APIs claras y escalables con .NET/C# o Node.js/JavaScript.",
+    howWork1:
+      "Diseño de APIs claras y escalables con .NET/C# o Node.js/JavaScript.",
     howWork2: "Interfaces accesibles y performantes con React/Next.js.",
-    howWork3: "Testing básico, control de versiones, CI/CD y documentación útil.",
+    howWork3:
+      "Testing básico, control de versiones, CI/CD y documentación útil.",
     educationTitle: "Formación",
     education1: "Desarrollo de Software — ITLA (2023–2025).",
     education2:

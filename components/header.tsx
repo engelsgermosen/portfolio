@@ -26,7 +26,7 @@ const Header = () => {
             Engels<strong className="font-extrabold">DEV</strong>
           </span>
         </Link>
-        <nav className="hidden md:flex gap-8">
+        <nav className="hidden lg:flex gap-8">
           <NavLinks />
         </nav>
         <div className="flex gap-3 items-center">
@@ -35,7 +35,7 @@ const Header = () => {
           <Button asChild size="sm" className="rounded-full hidden sm:flex">
             <Link href="#contact">{t.header.contact}</Link>
           </Button>
-          <div className="flex md:hidden">
+          <div className="flex lg:hidden">
             <Button
               className="bg-transparent border-2 rounded-xl"
               onClick={handleChange}
