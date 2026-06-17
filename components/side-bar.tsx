@@ -6,6 +6,7 @@ import {
   Building2,
   Code,
   Mail,
+  Award,
   ExternalLink,
   User,
 } from "lucide-react";
@@ -25,6 +26,7 @@ const SideBar = ({ handleChange }: SideBarProps) => {
     { href: "/#experience", label: t.nav.experience, icon: Building2 },
     { href: "/#projects", label: t.nav.projects, icon: Briefcase },
     { href: "/#skills", label: t.nav.skills, icon: Code },
+    { href: "/#certifications", label: t.nav.certifications, icon: Award },
     { href: "/#about", label: t.nav.about, icon: User },
     { href: "/#contact", label: t.nav.contact, icon: Mail },
   ];
@@ -35,43 +37,43 @@ const SideBar = ({ handleChange }: SideBarProps) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="fixed inset-0 z-50 flex flex-col bg-gradient-to-br from-slate-900 via-slate-950 to-black min-h-screen min-w-full "
+      className="fixed inset-0 z-50 flex min-h-screen w-full flex-col bg-[var(--bg)]"
     >
-      {/* Decorative elements */}
+      {/* Decorative glows */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-purple-500/10 blur-3xl"></div>
-        <div className="absolute top-1/3 -left-20 h-60 w-60 rounded-full bg-cyan-500/10 blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 h-40 w-40 rounded-full bg-pink-500/10 blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-primary/10 blur-3xl"></div>
+        <div className="absolute top-1/3 -left-20 h-60 w-60 rounded-full bg-[var(--violet-soft)] blur-3xl"></div>
+        <div className="absolute right-20 bottom-20 h-40 w-40 rounded-full bg-primary/5 blur-3xl"></div>
       </div>
 
       {/* Header */}
-      <div className="relative flex items-center justify-between border-b border-white/10 px-8 py-6">
-        <Link href="/" onClick={handleChange} className="flex items-center">
-          <motion.span
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.1 }}
-            className="relative z-10 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-[length:200%_auto] text-transparent bg-clip-text text-2xl font-medium animate-[gradient_8s_ease-in-out_infinite]"
-          >
-            Engels<strong className="font-extrabold">DEV</strong>
-          </motion.span>
-        </Link>
-        <motion.div
-          initial={{ opacity: 0, rotate: -90 }}
-          animate={{ opacity: 1, rotate: 0 }}
-          transition={{ delay: 0.2 }}
+      <div className="relative flex items-center justify-between border-b border-border px-8 py-6">
+        <Link
+          href="/"
+          onClick={handleChange}
+          className="flex items-center gap-[11px]"
         >
-          <Button
-            size="icon"
-            variant="ghost"
-            onClick={handleChange}
-            aria-label={t.sidebar.closeMenu}
-            className="relative h-10 w-10 overflow-hidden rounded-full border border-white/10 bg-white/5 text-white backdrop-blur-sm transition-all hover:bg-white/10 hover:scale-110"
+          <span
+            className="grid size-[30px] place-items-center rounded-lg font-mono text-[0.82rem] font-semibold text-white shadow-[0_4px_14px_-4px_var(--accent-glow)]"
+            style={{
+              background: "linear-gradient(140deg, var(--primary), #c2410c)",
+            }}
           >
-            <X className="h-5 w-5" />
-            <span className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-500/20 via-purple-500/20 to-pink-500/20 opacity-0 transition-opacity hover:opacity-100"></span>
-          </Button>
-        </motion.div>
+            &lt;/&gt;
+          </span>
+          <span className="font-display text-[1.05rem] font-bold tracking-tight text-foreground">
+            Engels<span className="text-primary">DEV</span>
+          </span>
+        </Link>
+        <Button
+          size="icon"
+          variant="ghost"
+          onClick={handleChange}
+          aria-label={t.sidebar.closeMenu}
+          className="size-10 rounded-[10px] border border-border bg-card text-foreground transition-all hover:border-primary"
+        >
+          <X className="h-5 w-5" />
+        </Button>
       </div>
 
       {/* Navigation */}
@@ -83,7 +85,7 @@ const SideBar = ({ handleChange }: SideBarProps) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
-                delay: 0.3 + index * 0.1,
+                delay: 0.15 + index * 0.07,
                 type: "spring",
                 stiffness: 300,
                 damping: 24,
@@ -92,14 +94,14 @@ const SideBar = ({ handleChange }: SideBarProps) => {
               <Link
                 href={item.href}
                 onClick={handleChange}
-                className="group flex items-center gap-3 rounded-xl p-3 text-lg font-medium text-white/70 transition-all hover:bg-white/5 hover:text-white hover:shadow-lg hover:shadow-purple-500/10"
+                className="group flex items-center gap-3 rounded-xl p-3 text-lg font-medium text-muted-foreground transition-all hover:bg-card hover:text-foreground"
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 text-white backdrop-blur-sm transition-all group-hover:from-cyan-500/30 group-hover:to-purple-500/30">
+                <span className="flex size-10 items-center justify-center rounded-lg border border-border bg-[var(--accent-soft)] text-primary transition-all group-hover:border-primary">
                   <item.icon className="h-5 w-5" />
                 </span>
                 <span className="relative">
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-gradient-to-r from-cyan-400 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
                 </span>
               </Link>
             </motion.div>
@@ -109,13 +111,13 @@ const SideBar = ({ handleChange }: SideBarProps) => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, type: "spring" }}
+          transition={{ delay: 0.6, type: "spring" }}
           className="mt-8"
         >
           <Link
             href="/#contact"
             onClick={handleChange}
-            className="group flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 p-4 text-center font-medium text-white shadow-lg shadow-purple-500/20 transition-all hover:shadow-xl hover:shadow-purple-500/30"
+            className="group flex items-center justify-center gap-2 rounded-xl bg-primary p-4 text-center font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_34px_-12px_var(--accent-glow)]"
           >
             {t.sidebar.getInTouch}
             <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -127,8 +129,8 @@ const SideBar = ({ handleChange }: SideBarProps) => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-        className="relative border-t border-white/10 px-8 py-6 text-center text-sm text-white/50"
+        transition={{ delay: 0.7 }}
+        className="relative border-t border-border px-8 py-6 text-center text-sm text-muted-foreground"
       >
         <p>
           © {new Date().getFullYear()} EngelsDEV • {t.sidebar.rights}

@@ -13,21 +13,40 @@ const en: Dictionary = {
   },
   header: {
     contact: "Contact me",
+    getInTouch: "Get in touch",
   },
   hero: {
+    badge: "Available for new projects",
+    roles: [
+      "Full-Stack Developer",
+      ".NET & React Engineer",
+      "Clean Architecture",
+      "Microservices Builder",
+    ],
     greeting: "Hi, I'm",
     description:
       "Full-stack developer focused on .NET and React. I build scalable backends with clean architecture and modern frontends centered on user experience.",
     viewProjects: "See my projects",
     viewCv: "View CV",
     downloadCv: "Download CV",
+    location: "Santo Domingo, DR",
+  },
+  experience: {
+    eyebrow: "Experience",
+    tagline: "Where I've been building",
   },
   projects: {
+    eyebrow: "Projects",
+    tagline: "Things I've shipped",
     title: "Projects",
     subtitle: "Take a look at some of my recent work",
     viewProject: "View project",
+    viewGithub: "View on GitHub",
+    featured: "Featured",
   },
   skills: {
+    eyebrow: "Skills",
+    tagline: "The stack I work in",
     title: "Skills",
     subtitle:
       "Technologies and tools I use to build modern, efficient web applications. Over 1.5 years developing personal projects.",
@@ -41,9 +60,12 @@ const en: Dictionary = {
     of: "of",
   },
   certifications: {
+    eyebrow: "Certifications",
+    tagline: "Always learning",
     title: "Certifications",
     subtitle:
       "Continuous learning and certifications that back up my software development knowledge",
+    completed: "Completed",
     viewCertificate: "View certificate",
     viewDiploma: "View full diploma",
     showMore: "Show more certifications",
@@ -51,6 +73,8 @@ const en: Dictionary = {
     total: "Total certifications:",
   },
   about: {
+    eyebrow: "About",
+    tagline: "Self-taught, building serious systems",
     intro:
       "Full-stack developer focused on turning ideas into maintainable, fast web products. I care about clean architecture, DX, and making every detail of the interface feel smooth and accessible.",
     howWorkTitle: "How I work",
@@ -65,8 +89,20 @@ const en: Dictionary = {
     nowTitle: "Right now",
     nowText:
       "Going deeper into real-time apps with WebSockets, performance optimization in Next.js (SSR/ISR) and clean architecture patterns.",
+    info: {
+      locationLabel: "location",
+      locationValue: "Santo Domingo, DR",
+      focusLabel: "focus",
+      focusValue: ".NET · React · Flutter",
+      levelLabel: "level",
+      levelValue: "Junior · self-taught",
+      languagesLabel: "languages",
+      languagesValue: "Spanish · English",
+    },
   },
   contact: {
+    eyebrow: "Contact",
+    tagline: "Let's build something serious",
     title: "Contact me",
     subtitle: "Let's work together on your next project",
     name: "Name",
@@ -79,6 +115,7 @@ const en: Dictionary = {
     messagePlaceholder: "Your message",
     send: "Send Message",
     success: "Email sent successfully!",
+    orWrite: "Or send me a direct message",
   },
   sidebar: {
     getInTouch: "Get in touch",
@@ -87,6 +124,7 @@ const en: Dictionary = {
   },
   footer: {
     rights: "All rights reserved.",
+    tagline: "Built with care in Santo Domingo",
   },
   theme: {
     light: "Light",

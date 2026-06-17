@@ -1,124 +1,152 @@
 "use client";
-import {
-  Github,
-  Mail,
-  Download,
-  ArrowRight,
-  Linkedin,
-  Eye,
-} from "lucide-react";
+import { Github, Mail, Download, ArrowRight, Linkedin, Eye } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "./ui/button";
 import { useTranslation } from "./language-provider";
+import TypedRoles from "./typed-roles";
 
 const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <section
-      id="hero"
-      className="py-24 md:py-32 lg:py-40 relative overflow-hidden min-h-screen flex items-center"
+    <header
+      id="top"
+      className="mx-auto grid max-w-[1160px] items-center gap-[clamp(40px,6vw,72px)] px-6 py-[clamp(48px,9vw,104px)] [grid-template-columns:repeat(auto-fit,minmax(320px,1fr))]"
     >
-      <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-[#9c5bdb]/15 to-transparent pointer-events-none"></div>
-      <div className="container px-4 md:px-6 relative mx-auto">
-        <div className="flex flex-col-reverse gap-6 lg:flex-row lg:gap-12">
-          <div className="flex flex-col justify-center space-y-6 animate-fade-in lg:w-1/2 lg:pt-8 lg:pl-10">
-            <div className="space-y-4">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                {t.hero.greeting} <span className="gradient-name">Engels</span>
-              </h1>
-              <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                {t.hero.description}
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 min-[520px]:flex-row">
-              <Button asChild size="lg" className="rounded-full group">
-                <Link href="#projects" className="flex items-center">
-                  {t.hero.viewProjects}
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="secondary"
-                className="rounded-full group"
-              >
-                <Link
-                  href="/cv/EngelsGermosenCv.pdf"
-                  target="_blank"
-                  className="flex items-center"
-                >
-                  <Eye className="mr-2 h-4 w-4" />
-                  {t.hero.viewCv}
-                </Link>
-              </Button>
-              <Button
-                variant="outline"
-                asChild
-                size="lg"
-                className="rounded-full gradient-border hover:bg-primary/10"
-              >
-                <Link
-                  href="/cv/EngelsGermosenCv.pdf"
-                  className="flex items-center"
-                  download
-                >
-                  <Download className="mr-2 h-4 w-4" />
-                  {t.hero.downloadCv}
-                </Link>
-              </Button>
-            </div>
-            <div className="flex items-center gap-6 pt-4 justify-center lg:justify-start">
-              <Link
-                href="https://github.com/engelsgermosen"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                <Github className="h-6 w-6" />
-                <span className="sr-only">GitHub</span>
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/engels-germosen-4a08b5354/"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                <Linkedin className="h-6 w-6" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-              <Link
-                href="mailto:mrengels2648@gmail.com"
-                className="hover:text-primary transition-colors"
-              >
-                <Mail className="h-6 w-6" />
-                <span className="sr-only">Email</span>
-              </Link>
-            </div>
+      {/* Left column */}
+      <div>
+        <div
+          className="animate-fade-up mb-[26px] inline-flex items-center gap-[9px] rounded-full border border-border bg-card px-[13px] py-1.5 font-mono text-[0.74rem] tracking-wide text-muted-foreground"
+        >
+          <span className="size-[7px] rounded-full bg-primary animate-pulse-dot" />
+          {t.hero.badge}
+        </div>
+
+        <h1
+          className="animate-fade-up mb-[22px] font-display text-[clamp(2.7rem,8.5vw,5.4rem)] font-bold leading-[0.94] tracking-[-0.03em] text-foreground"
+          style={{ animationDelay: "0.06s" }}
+        >
+          ENGELS
+          <br />
+          GERMOSEN
+        </h1>
+
+        <div
+          className="animate-fade-up mb-[26px] min-h-[1.6em] font-mono text-[clamp(1rem,2.6vw,1.3rem)] text-muted-foreground"
+          style={{ animationDelay: "0.12s" }}
+        >
+          <span className="text-primary">&gt;_</span> <TypedRoles roles={t.hero.roles} />
+        </div>
+
+        <p
+          className="animate-fade-up mb-[34px] max-w-[476px] text-[1.06rem] leading-[1.72] text-muted-foreground"
+          style={{ animationDelay: "0.18s" }}
+        >
+          {t.hero.description}
+        </p>
+
+        <div
+          className="animate-fade-up mb-[34px] flex flex-wrap gap-3"
+          style={{ animationDelay: "0.24s" }}
+        >
+          <Link
+            href="#projects"
+            className="group inline-flex items-center gap-2 rounded-xl bg-primary px-[22px] py-[13px] text-[0.96rem] font-semibold text-primary-foreground transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_-12px_var(--accent-glow)]"
+          >
+            {t.hero.viewProjects}
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+          <Link
+            href="/cv/EngelsGermosenCv.pdf"
+            target="_blank"
+            className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-[22px] py-[13px] text-[0.96rem] font-semibold text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-primary"
+          >
+            <Eye className="h-4 w-4" />
+            {t.hero.viewCv}
+          </Link>
+          <Link
+            href="/cv/EngelsGermosenCv.pdf"
+            download
+            className="inline-flex items-center gap-2 rounded-xl px-[22px] py-[13px] text-[0.96rem] font-semibold text-muted-foreground transition-colors duration-200 hover:text-foreground"
+          >
+            <Download className="h-4 w-4" />
+            {t.hero.downloadCv}
+          </Link>
+        </div>
+
+        <div
+          className="animate-fade-up flex gap-[11px]"
+          style={{ animationDelay: "0.3s" }}
+        >
+          {[
+            {
+              href: "https://github.com/engelsgermosen",
+              label: "GitHub",
+              icon: Github,
+            },
+            {
+              href: "https://www.linkedin.com/in/engels-germosen-4a08b5354/",
+              label: "LinkedIn",
+              icon: Linkedin,
+            },
+            {
+              href: "mailto:mrengels2648@gmail.com",
+              label: "Email",
+              icon: Mail,
+            },
+          ].map(({ href, label, icon: Icon }) => (
+            <Link
+              key={label}
+              href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel="noreferrer"
+              aria-label={label}
+              className="grid size-[42px] place-items-center rounded-[11px] border border-border bg-card text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+            >
+              <Icon className="h-5 w-5" />
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* Right column — profile */}
+      <div className="flex justify-center animate-fade-up" style={{ animationDelay: "0.2s" }}>
+        <div className="relative aspect-square w-[min(360px,82vw)]">
+          {/* Glow */}
+          <div
+            className="absolute inset-[-14%] rounded-full opacity-75 blur-[30px] animate-float-glow"
+            style={{
+              background:
+                "radial-gradient(circle at 50% 45%, var(--accent-glow), transparent 68%)",
+            }}
+          />
+          {/* Spinning conic ring */}
+          <div
+            className="absolute inset-0 rounded-full animate-spin-ring"
+            style={{
+              background:
+                "conic-gradient(from 140deg, var(--primary), var(--violet), var(--primary))",
+            }}
+          />
+          {/* Photo (static, sits on top of the ring leaving a 3px edge) */}
+          <div className="absolute inset-[3px] overflow-hidden rounded-full bg-[var(--surface)] ring-1 ring-border">
+            <Image
+              src="/yo.jpg"
+              alt="Engels Germosen"
+              fill
+              quality={100}
+              priority
+              sizes="360px"
+              className="object-cover"
+            />
           </div>
-          <div className="flex items-center justify-center animate-fade-in lg:w-1/2">
-            <div className="relative">
-              <div className="absolute -inset-1 md:-inset-2 rounded-full lg:rounded-3xl bg-linear-to-r from-primary via-accent to-primary bg-size-[200%_auto] animate-[gradient_8s_ease-in-out_infinite] blur-md"></div>
-              <div className="relative inline-block p-0.5 rounded-full lg:rounded-2xl bg-linear-to-r from-primary via-accent to-primary bg-size-[200%_auto] animate-[gradient_8s_ease-in-out_infinite] transition-all duration-500 hover:scale-105 group">
-                <div className="overflow-hidden rounded-full lg:rounded-xl ring-1 ring-white/10 dark:ring-black/5">
-                  <Image
-                    src="/yo.jpg"
-                    alt="Engels"
-                    quality={100}
-                    width={400}
-                    height={400}
-                    priority
-                    className="rounded-full lg:rounded-xl object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-              </div>
-            </div>
+          {/* Location pill */}
+          <div className="absolute bottom-[6%] left-1/2 inline-flex -translate-x-1/2 items-center gap-[7px] whitespace-nowrap rounded-full border border-border bg-[var(--bg-2)] px-[14px] py-[7px] font-mono text-[0.74rem] text-muted-foreground shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)]">
+            📍 {t.hero.location}
           </div>
         </div>
       </div>
-    </section>
+    </header>
   );
 };
 

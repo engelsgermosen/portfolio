@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Briefcase, Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin } from "lucide-react";
 import { useTranslation } from "./language-provider";
 import type { Locale } from "@/i18n/dictionaries";
+import SectionHeading from "./section-heading";
+import Reveal from "./reveal";
 
 interface ExperienceItem {
   id: number;
@@ -65,98 +66,80 @@ const experience: ExperienceItem[] = [
   },
 ];
 
-const sectionTitle: Record<Locale, string> = {
-  es: "Experiencia",
-  en: "Experience",
-};
-const sectionSubtitle: Record<Locale, string> = {
-  es: "Mi trayectoria profesional construyendo software",
-  en: "My professional journey building software",
-};
-
 const Experience = () => {
-  const { locale } = useTranslation();
+  const { t, locale } = useTranslation();
 
   return (
-    <section id="experience" className="py-24 md:py-32 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none"></div>
-      <div className="container px-4 md:px-6 relative mx-auto">
-        {/* Section header (mirrors the other sections: icon badge + title + muted subtitle) */}
-        <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center mb-12">
-          <div className="inline-flex items-center justify-center p-2 bg-primary/10 rounded-full">
-            <Briefcase className="h-6 w-6 text-primary" />
-          </div>
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            {sectionTitle[locale]}
-          </h2>
-          <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            {sectionSubtitle[locale]}
-          </p>
-        </div>
+    <section
+      id="experience"
+      className="mx-auto max-w-[1160px] px-6 py-[clamp(56px,9vw,108px)]"
+    >
+      <SectionHeading
+        number="01"
+        eyebrow={t.experience.eyebrow}
+        title={t.experience.tagline}
+      />
 
-        {/* Vertical timeline: the left border is the line, the orange dots mark each entry */}
-        <ol className="relative mx-auto mt-16 max-w-3xl space-y-10 border-l border-border pl-8 md:pl-10">
-          {experience.map((exp, index) => (
-            <motion.li
-              key={exp.id}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.15,
-                ease: "easeOut",
+      <div className="relative flex flex-col gap-[30px] border-l border-border pl-[34px]">
+        {experience.map((exp, index) => (
+          <Reveal key={exp.id} delay={index * 0.1} className="relative">
+            {/* Timeline dot */}
+            <span
+              className="absolute -left-[42px] top-1.5 size-[15px] rounded-full bg-primary"
+              style={{
+                boxShadow:
+                  "0 0 0 4px var(--bg), 0 0 0 5px var(--border), 0 0 18px var(--accent-glow)",
               }}
-              className="relative"
-            >
-              {/* Timeline dot (orange accent). ring-background masks the line behind it */}
-              <span className="absolute -left-[2.5rem] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary ring-4 ring-background md:-left-[3rem]">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary-foreground"></span>
-              </span>
-
-              <div className="rounded-xl border border-border bg-card/80 text-card-foreground p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:shadow-xl">
-                <h3 className="text-xl font-bold">{exp.company}</h3>
-                <p className="mt-0.5 font-medium text-primary">
+            />
+            <div className="rounded-2xl border border-border bg-card p-[26px_28px] transition-all duration-200 hover:translate-x-[3px] hover:border-primary">
+              <div className="mb-2 flex flex-wrap items-baseline justify-between gap-[10px]">
+                <h3 className="font-display text-[1.28rem] font-semibold text-foreground">
                   {exp.role[locale]}
-                </p>
-
-                <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-                  <span className="inline-flex items-center gap-1.5">
-                    <Calendar className="h-4 w-4" />
-                    {exp.period}
-                  </span>
-                  <span className="inline-flex items-center gap-1.5">
-                    <MapPin className="h-4 w-4" />
-                    {exp.location}
-                  </span>
-                </div>
-
-                <ul className="mt-4 space-y-2.5">
-                  {exp.bullets[locale].map((bullet, i) => (
-                    <li
-                      key={i}
-                      className="flex gap-3 text-sm leading-relaxed text-muted-foreground"
-                    >
-                      <span className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70"></span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {exp.tecnologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="inline-flex items-center rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                </h3>
+                <span className="font-mono text-[0.8rem] text-primary">
+                  {exp.period}
+                </span>
               </div>
-            </motion.li>
-          ))}
-        </ol>
+
+              <div className="mb-1 font-medium text-muted-foreground">
+                {exp.company}
+              </div>
+              <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-[var(--text-faint)]">
+                <span className="inline-flex items-center gap-1.5">
+                  <Calendar className="h-3.5 w-3.5" />
+                  {exp.period}
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <MapPin className="h-3.5 w-3.5" />
+                  {exp.location}
+                </span>
+              </div>
+
+              <ul className="space-y-2.5">
+                {exp.bullets[locale].map((bullet, i) => (
+                  <li
+                    key={i}
+                    className="flex gap-3 text-[0.98rem] leading-relaxed text-muted-foreground"
+                  >
+                    <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {exp.tecnologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-lg border border-border bg-[var(--surface-2)] px-[11px] py-1.5 font-mono text-[0.76rem] text-muted-foreground"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        ))}
       </div>
     </section>
   );
