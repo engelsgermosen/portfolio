@@ -1,7 +1,11 @@
+"use client";
 import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
+import { useTranslation } from "./language-provider";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="border-t py-12 bg-muted/30">
       <div className="container flex flex-col items-center justify-around gap-4 md:flex-row mx-auto">
@@ -14,7 +18,7 @@ const Footer = () => {
         </div>
         <div className="flex items-center">
           <p className="text-center text-sm text-muted-foreground md:text-left">
-            © {new Date().getFullYear()} Todos los derechos reservados.
+            © {new Date().getFullYear()} {t.footer.rights}
           </p>
         </div>
         <div className="flex items-center gap-6">

@@ -1,3 +1,4 @@
+"use client";
 import {
   Github,
   Mail,
@@ -9,8 +10,11 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { useTranslation } from "./language-provider";
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <section
       id="hero"
@@ -22,19 +26,16 @@ const Hero = () => {
           <div className="flex flex-col justify-center space-y-6 animate-fade-in lg:w-1/2 lg:pt-8 lg:pl-10">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Hola, Soy <span className="gradient-name">Engels</span>
+                {t.hero.greeting} <span className="gradient-name">Engels</span>
               </h1>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                Desarrollador full‑stack: backend sólido con C#/.NET y frontend
-                con React/Next.js. Más de 1.5 años construyendo proyectos
-                personales y entregando experiencias web centradas en el
-                usuario.
+                {t.hero.description}
               </p>
             </div>
             <div className="flex flex-col gap-3 min-[520px]:flex-row">
               <Button asChild size="lg" className="rounded-full group">
                 <Link href="#projects" className="flex items-center">
-                  Mira mis proyectos
+                  {t.hero.viewProjects}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -50,7 +51,7 @@ const Hero = () => {
                   className="flex items-center"
                 >
                   <Eye className="mr-2 h-4 w-4" />
-                  Ver CV
+                  {t.hero.viewCv}
                 </Link>
               </Button>
               <Button
@@ -65,7 +66,7 @@ const Hero = () => {
                   download
                 >
                   <Download className="mr-2 h-4 w-4" />
-                  Descargar CV
+                  {t.hero.downloadCv}
                 </Link>
               </Button>
             </div>

@@ -1,12 +1,15 @@
+"use client";
 import { Code, Server, Zap, Star } from "lucide-react";
 import { Card } from "./ui/card";
+import { useTranslation } from "./language-provider";
 
 const RatingStars = ({ level }: { level: number }) => {
+  const { t } = useTranslation();
   const max = 5;
   return (
     <div className="flex items-center gap-2" aria-hidden>
       <span className="sr-only">
-        Nivel: {level} de {max}
+        {t.skills.level}: {level} {t.skills.of} {max}
       </span>
       <div className="text-yellow-400 text-lg">
         {Array.from({ length: max }).map((_, i) => (
@@ -24,8 +27,10 @@ const RatingStars = ({ level }: { level: number }) => {
   );
 };
 
+type CategoryKey = "stack" | "frontend" | "backend" | "tools";
+
 interface ICategory {
-  title: string;
+  key: CategoryKey;
   icon: React.ReactNode;
   skills: ISkill[];
 }
@@ -36,9 +41,11 @@ interface ISkill {
 }
 
 const Skills = () => {
+  const { t } = useTranslation();
+
   const categories: ICategory[] = [
     {
-      title: "Stack principal",
+      key: "stack",
       icon: <Star className="h-8 w-8 mb-3 text-primary" />,
       skills: [
         { name: "C# & .NET", level: 5 },
@@ -48,7 +55,7 @@ const Skills = () => {
       ],
     },
     {
-      title: "Frontend",
+      key: "frontend",
       icon: <Code className="h-10 w-10 mb-4 text-primary" />,
       skills: [
         { name: "HTML5 & CSS3", level: 5 },
@@ -59,7 +66,7 @@ const Skills = () => {
       ],
     },
     {
-      title: "Backend",
+      key: "backend",
       icon: <Server className="h-10 w-10 mb-4 text-primary" />,
       skills: [
         { name: "C# & .NET", level: 5 },
@@ -71,7 +78,7 @@ const Skills = () => {
       ],
     },
     {
-      title: "Tools",
+      key: "tools",
       icon: <Zap className="h-10 w-10 mb-4 text-primary" />,
       skills: [
         { name: "Git & GitHub", level: 4 },
@@ -89,21 +96,17 @@ const Skills = () => {
       <div className="container px-4 md:px-6 relative mx-auto">
         <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
           <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-5xl gradient-text">
-            Habilidades
+            {t.skills.title}
           </h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            Tecnologias y herramientas que utilizo para crear aplicaciones web
-            modernas y eficientes. Más de 1.5 años desarrollando proyectos
-            personales.
+            {t.skills.subtitle}
           </p>
         </div>
 
         {/* Primary card centered and smaller */}
         {(() => {
-          const primary = categories.find((c) => c.title === "Stack principal");
-          const others = categories.filter(
-            (c) => c.title !== "Stack principal"
-          );
+          const primary = categories.find((c) => c.key === "stack");
+          const others = categories.filter((c) => c.key !== "stack");
           return (
             <>
               {primary && (
@@ -115,7 +118,7 @@ const Skills = () => {
                     <div className="flex flex-col items-center">
                       {primary.icon}
                       <h3 className="text-lg font-bold mb-2">
-                        {primary.title}
+                        {t.skills.categories[primary.key]}
                       </h3>
                       <ul className="w-full space-y-2 text-left max-w-xl">
                         {primary.skills.map((skill: ISkill, i: number) => (
@@ -127,7 +130,7 @@ const Skills = () => {
                               <span className="font-medium">{skill.name}</span>
                               <span className="sr-only">
                                 {" "}
-                                — Nivel: {skill.level} de 5
+                                — {t.skills.level}: {skill.level} {t.skills.of} 5
                               </span>
                             </div>
                             <RatingStars level={skill.level} />
@@ -150,7 +153,7 @@ const Skills = () => {
                     <div className="flex flex-col items-center">
                       {category.icon}
                       <h3 className="text-xl font-bold mb-4">
-                        {category.title}
+                        {t.skills.categories[category.key]}
                       </h3>
                       <ul className="w-full space-y-3 text-left">
                         {category.skills.map(
@@ -165,7 +168,7 @@ const Skills = () => {
                                 </span>
                                 <span className="sr-only">
                                   {" "}
-                                  — Nivel: {skill.level} de 5
+                                  — {t.skills.level}: {skill.level} {t.skills.of} 5
                                 </span>
                               </div>
                               <div className="flex items-center">

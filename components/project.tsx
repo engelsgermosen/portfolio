@@ -1,3 +1,4 @@
+"use client";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
@@ -10,9 +11,11 @@ import {
 } from "./ui/card";
 import Image from "next/image";
 import { Projects } from "@/app/data/projects";
+import { useTranslation } from "./language-provider";
 
 const Project = () => {
   const projectos = Projects;
+  const { t, locale } = useTranslation();
 
   return (
     <section id="projects" className="py-24 md:py-32 bg-muted/30 relative">
@@ -20,10 +23,10 @@ const Project = () => {
       <div className="container px-4 md:px-6 relative mx-auto">
         <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
           <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-5xl gradient-text">
-            Proyectos
+            {t.projects.title}
           </h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            Echa un vistazo a algunos de mis trabajos recientes
+            {t.projects.subtitle}
           </p>
         </div>
         <div className="mx-auto grid justify-center gap-8 md:grid-cols-2 md:max-w-[64rem] xl:grid-cols-3 mt-16">
@@ -36,7 +39,7 @@ const Project = () => {
               <CardHeader className="p-0">
                 <div className="overflow-hidden">
                   <Image
-                    alt={`${project.title}`}
+                    alt={project.title[locale]}
                     className="aspect-video w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
                     height={225}
                     src={
@@ -49,9 +52,11 @@ const Project = () => {
                 </div>
               </CardHeader>
               <CardContent className="p-6 grow">
-                <CardTitle className="text-xl mb-2">{project.title}</CardTitle>
+                <CardTitle className="text-xl mb-2">
+                  {project.title[locale]}
+                </CardTitle>
                 <p className="text-sm text-muted-foreground">
-                  {project.description}
+                  {project.description[locale]}
                 </p>
               </CardContent>
               <CardFooter className="p-6 pt-0">
@@ -64,7 +69,7 @@ const Project = () => {
                     href={`/project/${project.id}`}
                     className="flex items-center justify-center"
                   >
-                    Ver proyecto
+                    {t.projects.viewProject}
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>

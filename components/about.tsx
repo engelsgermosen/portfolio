@@ -1,6 +1,10 @@
+"use client";
 import React from "react";
+import { useTranslation } from "./language-provider";
 
 const About = () => {
+  const { t } = useTranslation();
+
   return (
     <section
       id="about"
@@ -16,41 +20,29 @@ const About = () => {
               </h1>
             </div>
             <div className="max-w-[680px] text-muted-foreground md:text-lg prose prose-invert">
-              <p>
-                Desarrollador full-stack enfocado en convertir ideas en
-                productos web mantenibles y rápidos. Me importan la arquitectura
-                limpia, la DX y que cada detalle de la interfaz se sienta fluido
-                y accesible.
-              </p>
+              <p>{t.about.intro}</p>
 
-              <h4 className="mt-4 text-base font-semibold">Cómo trabajo</h4>
+              <h4 className="mt-4 text-base font-semibold">
+                {t.about.howWorkTitle}
+              </h4>
               <ul>
-                <li>
-                  Diseño de APIs claras y escalables con .NET/C# o
-                  Node.js/JavaScript.
-                </li>
-                <li>Interfaces accesibles y performantes con React/Next.js.</li>
-                <li>
-                  Testing básico, control de versiones, CI/CD y documentación
-                  útil.
-                </li>
+                <li>{t.about.howWork1}</li>
+                <li>{t.about.howWork2}</li>
+                <li>{t.about.howWork3}</li>
               </ul>
 
-              <h4 className="mt-4 text-base font-semibold">Formación</h4>
+              <h4 className="mt-4 text-base font-semibold">
+                {t.about.educationTitle}
+              </h4>
               <ul>
-                <li>Desarrollo de Software — ITLA (2023–2025).</li>
-                <li>
-                  Complemento con cursos de APIs REST, bases de datos SQL/NoSQL
-                  y despliegue en la nube.
-                </li>
+                <li>{t.about.education1}</li>
+                <li>{t.about.education2}</li>
               </ul>
 
-              <h4 className="mt-4 text-base font-semibold">Ahora mismo</h4>
-              <p>
-                Profundizando en apps en tiempo real con WebSockets,
-                optimización de rendimiento en Next.js (SSR/ISR) y patrones de
-                arquitectura limpia.
-              </p>
+              <h4 className="mt-4 text-base font-semibold">
+                {t.about.nowTitle}
+              </h4>
+              <p>{t.about.nowText}</p>
             </div>
           </div>
         </div>

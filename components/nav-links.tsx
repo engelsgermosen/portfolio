@@ -1,39 +1,37 @@
+"use client";
 import Link from "next/link";
 import React from "react";
+import { useTranslation } from "./language-provider";
 
 export const NavLinks = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Link
         href="/#projects"
         className="text-sm font-medium hover:text-primary transition-colors"
       >
-        Proyectos
+        {t.nav.projects}
       </Link>
       <Link
         href="/#skills"
         className="text-sm font-medium hover:text-primary transition-colors"
       >
-        Habilidades
+        {t.nav.skills}
       </Link>
       <Link
         href="/#certifications"
         className="text-sm font-medium hover:text-primary transition-colors"
       >
-        Certificaciones
+        {t.nav.certifications}
       </Link>
       <Link
         href="/#about"
         className="text-sm font-medium hover:text-primary transition-colors"
       >
-        Sobre mí
+        {t.nav.about}
       </Link>
-      {/* <Link
-        href="/#contact"
-        className="text-sm font-medium hover:text-primary transition-colors"
-      >
-        Contacto
-      </Link> */}
     </>
   );
 };

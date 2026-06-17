@@ -12,8 +12,10 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { certifications } from "@/app/data/certifications";
 import { useState } from "react";
+import { useTranslation } from "./language-provider";
 
 const Certifications = () => {
+  const { t, locale } = useTranslation();
   const [showAllMobile, setShowAllMobile] = useState(false);
   const [showAllDesktop, setShowAllDesktop] = useState(false);
 
@@ -32,11 +34,10 @@ const Certifications = () => {
           </div>
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Certificaciones
+              {t.certifications.title}
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Formación continua y certificaciones que respaldan mis
-              conocimientos en desarrollo de software
+              {t.certifications.subtitle}
             </p>
           </div>
         </div>
@@ -66,7 +67,9 @@ const Certifications = () => {
                       rel="noopener noreferrer"
                     >
                       <ExternalLink className="h-4 w-4" />
-                      <span className="sr-only">Ver certificado</span>
+                      <span className="sr-only">
+                        {t.certifications.viewCertificate}
+                      </span>
                     </Link>
                   </Button>
                 </div>
@@ -74,7 +77,7 @@ const Certifications = () => {
                 {/* Título y emisor */}
                 <div className="space-y-3">
                   <h3 className="font-semibold text-lg line-clamp-2 group-hover:text-primary transition-colors">
-                    {cert.title}
+                    {cert.title[locale]}
                   </h3>
                   <div className="flex items-center gap-2">
                     <FileCheck className="h-4 w-4 text-primary" />
@@ -87,7 +90,7 @@ const Certifications = () => {
                 {/* Fecha */}
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Calendar className="h-4 w-4" />
-                  <span>{cert.date}</span>
+                  <span>{cert.date[locale]}</span>
                 </div>
 
                 {/* Skills */}
@@ -98,7 +101,7 @@ const Certifications = () => {
                         key={index}
                         className="text-xs px-2.5 py-1 bg-primary/10 text-primary rounded-full font-medium"
                       >
-                        {skill}
+                        {skill[locale]}
                       </span>
                     ))}
                   </div>
@@ -116,7 +119,7 @@ const Certifications = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Ver diploma completo
+                    {t.certifications.viewDiploma}
                     <ExternalLink className="ml-2 h-3 w-3" />
                   </Link>
                 </Button>
@@ -150,7 +153,9 @@ const Certifications = () => {
                       rel="noopener noreferrer"
                     >
                       <ExternalLink className="h-4 w-4" />
-                      <span className="sr-only">Ver certificado</span>
+                      <span className="sr-only">
+                        {t.certifications.viewCertificate}
+                      </span>
                     </Link>
                   </Button>
                 </div>
@@ -158,7 +163,7 @@ const Certifications = () => {
                 {/* Título y emisor */}
                 <div className="space-y-3">
                   <h3 className="font-semibold text-lg line-clamp-2 group-hover:text-primary transition-colors">
-                    {cert.title}
+                    {cert.title[locale]}
                   </h3>
                   <div className="flex items-center gap-2">
                     <FileCheck className="h-4 w-4 text-primary" />
@@ -171,7 +176,7 @@ const Certifications = () => {
                 {/* Fecha */}
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Calendar className="h-4 w-4" />
-                  <span>{cert.date}</span>
+                  <span>{cert.date[locale]}</span>
                 </div>
 
                 {/* Skills */}
@@ -182,7 +187,7 @@ const Certifications = () => {
                         key={index}
                         className="text-xs px-2.5 py-1 bg-primary/10 text-primary rounded-full font-medium"
                       >
-                        {skill}
+                        {skill[locale]}
                       </span>
                     ))}
                   </div>
@@ -200,7 +205,7 @@ const Certifications = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Ver diploma completo
+                    {t.certifications.viewDiploma}
                     <ExternalLink className="ml-2 h-3 w-3" />
                   </Link>
                 </Button>
@@ -219,8 +224,8 @@ const Certifications = () => {
               className="rounded-full group"
             >
               {showAllDesktop
-                ? "Ver menos certificaciones"
-                : "Ver más certificaciones"}
+                ? t.certifications.showLess
+                : t.certifications.showMore}
               <ChevronDown
                 className={`ml-2 h-4 w-4 transition-transform ${
                   showAllDesktop ? "rotate-180" : "group-hover:translate-y-1"
@@ -240,8 +245,8 @@ const Certifications = () => {
               className="rounded-full group"
             >
               {showAllMobile
-                ? "Ver menos certificaciones"
-                : "Ver más certificaciones"}
+                ? t.certifications.showLess
+                : t.certifications.showMore}
               <ChevronDown
                 className={`ml-2 h-4 w-4 transition-transform ${
                   showAllMobile ? "rotate-180" : "group-hover:translate-y-1"
@@ -254,7 +259,7 @@ const Certifications = () => {
         {/* Contador */}
         <div className="mt-12 text-center">
           <p className="text-muted-foreground">
-            Total de certificaciones:{" "}
+            {t.certifications.total}{" "}
             <span className="font-bold text-primary text-xl">
               {certifications.length}
             </span>

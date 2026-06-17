@@ -4,17 +4,20 @@ import { X, Briefcase, Code, Mail, ExternalLink, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useTranslation } from "./language-provider";
 
 interface SideBarProps {
   handleChange: () => void;
 }
 
 const SideBar = ({ handleChange }: SideBarProps) => {
+  const { t } = useTranslation();
+
   const menuItems = [
-    { href: "/#projects", label: "Proyectos", icon: Briefcase },
-    { href: "/#skills", label: "Habilidades", icon: Code },
-    { href: "/#about", label: "Sobre mí", icon: User },
-    { href: "/#contact", label: "Contacto", icon: Mail },
+    { href: "/#projects", label: t.nav.projects, icon: Briefcase },
+    { href: "/#skills", label: t.nav.skills, icon: Code },
+    { href: "/#about", label: t.nav.about, icon: User },
+    { href: "/#contact", label: t.nav.contact, icon: Mail },
   ];
 
   return (
@@ -53,7 +56,7 @@ const SideBar = ({ handleChange }: SideBarProps) => {
             size="icon"
             variant="ghost"
             onClick={handleChange}
-            aria-label="Close menu"
+            aria-label={t.sidebar.closeMenu}
             className="relative h-10 w-10 overflow-hidden rounded-full border border-white/10 bg-white/5 text-white backdrop-blur-sm transition-all hover:bg-white/10 hover:scale-110"
           >
             <X className="h-5 w-5" />
@@ -105,7 +108,7 @@ const SideBar = ({ handleChange }: SideBarProps) => {
             onClick={handleChange}
             className="group flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 p-4 text-center font-medium text-white shadow-lg shadow-purple-500/20 transition-all hover:shadow-xl hover:shadow-purple-500/30"
           >
-            Get in touch
+            {t.sidebar.getInTouch}
             <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </motion.div>
@@ -118,7 +121,9 @@ const SideBar = ({ handleChange }: SideBarProps) => {
         transition={{ delay: 0.8 }}
         className="relative border-t border-white/10 px-8 py-6 text-center text-sm text-white/50"
       >
-        <p>© {new Date().getFullYear()} EngelsDEV • All rights reserved</p>
+        <p>
+          © {new Date().getFullYear()} EngelsDEV • {t.sidebar.rights}
+        </p>
       </motion.div>
     </motion.div>
   );

@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import emailjs from "emailjs-com";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslation } from "./language-provider";
 
 interface EmailData {
   name: string;
@@ -13,6 +14,7 @@ interface EmailData {
 }
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState<EmailData>({
     name: "",
     email: "",
@@ -71,10 +73,10 @@ const Contact = () => {
       <div className="container px-4 md:px-6 relative mx-auto">
         <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
           <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-5xl gradient-text">
-            Contáctame
+            {t.contact.title}
           </h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            Trabajemos juntos en tu próximo proyecto
+            {t.contact.subtitle}
           </p>
         </div>
         <div className="mx-auto max-w-2xl mt-16 animate-fade-in">
@@ -87,7 +89,7 @@ const Contact = () => {
                       htmlFor="name"
                       className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
-                      Name
+                      {t.contact.name}
                     </label>
                     <input
                       required
@@ -96,7 +98,7 @@ const Contact = () => {
                       value={email.name}
                       onChange={handleChange}
                       className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      placeholder="Tu nombre"
+                      placeholder={t.contact.namePlaceholder}
                     />
                   </div>
                   <div className="grid gap-2">
@@ -104,7 +106,7 @@ const Contact = () => {
                       htmlFor="email"
                       className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
-                      Email
+                      {t.contact.email}
                     </label>
                     <input
                       required
@@ -114,7 +116,7 @@ const Contact = () => {
                       value={email.email}
                       onChange={handleChange}
                       className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      placeholder="Tu correo electrónico"
+                      placeholder={t.contact.emailPlaceholder}
                     />
                   </div>
                 </div>
@@ -123,7 +125,7 @@ const Contact = () => {
                     htmlFor="subject"
                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
-                    Subject
+                    {t.contact.subject}
                   </label>
                   <input
                     required
@@ -132,7 +134,7 @@ const Contact = () => {
                     value={email.subject}
                     onChange={handleChange}
                     className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Asunto"
+                    placeholder={t.contact.subjectPlaceholder}
                   />
                 </div>
                 <div className="grid gap-2">
@@ -140,7 +142,7 @@ const Contact = () => {
                     htmlFor="message"
                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
-                    Message
+                    {t.contact.message}
                   </label>
                   <textarea
                     required
@@ -149,7 +151,7 @@ const Contact = () => {
                     value={email.message}
                     onChange={handleChange}
                     className="flex min-h-[150px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Tu mensaje"
+                    placeholder={t.contact.messagePlaceholder}
                   />
                 </div>
                 <Button
@@ -158,7 +160,7 @@ const Contact = () => {
                   className="rounded-full w-full cursor-pointer"
                   disabled={isSubmitting}
                 >
-                  Enviar Mensaje
+                  {t.contact.send}
                 </Button>
               </form>
             </CardContent>
@@ -185,7 +187,7 @@ const Contact = () => {
               zIndex: 1000,
             }}
           >
-            ¡Correo enviado exitosamente!
+            {t.contact.success}
           </motion.div>
         )}
       </AnimatePresence>

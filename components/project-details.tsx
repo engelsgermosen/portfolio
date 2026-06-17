@@ -11,8 +11,18 @@ import {
   Github,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { projectProps } from "@/app/data/projects";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "./language-provider";
+
+interface ProjectDetailsProps {
+  id: number;
+  title: string;
+  description: string;
+  images: string[];
+  github?: string;
+  liveUrl?: string;
+  tecnologies: string[];
+}
 
 const ProjectDetails = ({
   images,
@@ -21,9 +31,10 @@ const ProjectDetails = ({
   github,
   liveUrl,
   tecnologies,
-}: projectProps) => {
+}: ProjectDetailsProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const router = useRouter();
+  const { t } = useTranslation();
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
@@ -70,7 +81,7 @@ const ProjectDetails = ({
                 >
                   <Image
                     src={image || "/placeholder.svg?height=600&width=1200"}
-                    alt={`Project image ${index + 1}`}
+                    alt={`${t.projectDetails.projectImage} ${index + 1}`}
                     className="object-cover"
                     priority={index === 0}
                     height={600}
@@ -85,7 +96,7 @@ const ProjectDetails = ({
             <button
               onClick={prevImage}
               className="absolute left-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-background/30 text-foreground backdrop-blur-sm transition-all hover:bg-background/50"
-              aria-label="Previous image"
+              aria-label={t.projectDetails.prevImage}
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
@@ -93,7 +104,7 @@ const ProjectDetails = ({
             <button
               onClick={nextImage}
               className="absolute right-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-background/30 text-foreground backdrop-blur-sm transition-all hover:bg-background/50"
-              aria-label="Next image"
+              aria-label={t.projectDetails.nextImage}
             >
               <ChevronRight className="h-6 w-6" />
             </button>
@@ -110,7 +121,7 @@ const ProjectDetails = ({
                       ? "w-8 bg-primary"
                       : "bg-foreground/50 hover:bg-foreground/80"
                   )}
-                  aria-label={`Go to image ${index + 1}`}
+                  aria-label={`${t.projectDetails.goToImage} ${index + 1}`}
                 />
               ))}
             </div>
@@ -147,7 +158,7 @@ const ProjectDetails = ({
                   className="group inline-flex items-center gap-2 rounded-lg border border-border bg-secondary px-4 py-2 text-secondary-foreground transition-all hover:border-primary/50 hover:bg-secondary/80"
                 >
                   <Github className="h-5 w-5 transition-transform group-hover:scale-110" />
-                  Ver Código
+                  {t.projectDetails.viewCode}
                   <span className="ml-1 block h-1.5 w-1.5 rounded-full bg-primary"></span>
                 </a>
               )}
@@ -160,7 +171,7 @@ const ProjectDetails = ({
                   className="group inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-primary-foreground shadow-md shadow-primary/10 transition-all hover:shadow-lg hover:shadow-primary/20"
                 >
                   <ExternalLink className="h-5 w-5 transition-transform group-hover:scale-110" />
-                  Ver en Vivo
+                  {t.projectDetails.viewLive}
                   <span className="ml-1 block h-1.5 w-1.5 rounded-full bg-primary-foreground"></span>
                 </a>
               )}
