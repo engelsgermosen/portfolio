@@ -67,7 +67,7 @@ const ProjectDetails = ({
           ease: "easeOut",
         }}
       >
-        <div className="overflow-hidden rounded-xl bg-card shadow-xl shadow-foreground/5">
+        <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-xl shadow-black/20">
           {/* Image Carousel */}
           <div className="relative aspect-video w-full overflow-hidden">
             <div className="relative h-full w-full">
@@ -129,7 +129,9 @@ const ProjectDetails = ({
 
           {/* Project Details */}
           <div className="p-6">
-            <h2 className="text-2xl font-bold text-card-foreground">{title}</h2>
+            <h2 className="font-display text-2xl font-bold text-card-foreground">
+              {title}
+            </h2>
 
             <div className="mt-4 flex flex-wrap gap-2">
               {tecnologies.map((tech) => (
@@ -138,9 +140,9 @@ const ProjectDetails = ({
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-sm text-secondary-foreground"
+                  className="inline-flex items-center gap-1 rounded-lg border border-border bg-[var(--surface-2)] px-2.5 py-1 font-mono text-xs text-muted-foreground"
                 >
-                  <Code className="mr-1 h-3 w-3" />
+                  <Code className="h-3 w-3" />
                   {tech}
                 </motion.span>
               ))}

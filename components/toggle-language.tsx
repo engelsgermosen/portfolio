@@ -21,7 +21,7 @@ const ToggleLanguage = () => {
         <Button
           variant="outline"
           size="icon"
-          className="rounded-xl cursor-pointer"
+          className="size-[38px] cursor-pointer rounded-[10px] border-border bg-card hover:border-primary"
         >
           <Languages className="h-[1.2rem] w-[1.2rem]" />
           <span className="sr-only">{t.language.label}</span>

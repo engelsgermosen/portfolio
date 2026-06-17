@@ -7,46 +7,55 @@ const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <footer className="border-t py-12 bg-muted/30">
-      <div className="container flex flex-col items-center justify-around gap-4 md:flex-row mx-auto">
-        <div className="flex items-center gap-2 md:items-start">
-          <Link href="/" className="font-bold text-xl flex items-center">
-            <span className="relative z-10 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] text-transparent bg-clip-text animate-[gradient_8s_ease-in-out_infinite]">
-              Engels<strong className="font-extrabold">DEV</strong>
-            </span>
-          </Link>
-        </div>
-        <div className="flex items-center">
-          <p className="text-center text-sm text-muted-foreground md:text-left">
-            © {new Date().getFullYear()} {t.footer.rights}
-          </p>
-        </div>
-        <div className="flex items-center gap-6">
+    <footer className="border-t border-border">
+      <div className="mx-auto flex max-w-[1160px] flex-wrap items-center justify-between gap-4 px-6 py-8">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2.5">
+          <span
+            className="grid size-[26px] place-items-center rounded-[7px] font-mono text-[0.72rem] font-semibold text-white"
+            style={{
+              background: "linear-gradient(140deg, var(--primary), #c2410c)",
+            }}
+          >
+            &lt;/&gt;
+          </span>
+          <span className="font-display font-bold text-foreground">
+            Engels<span className="text-primary">DEV</span>
+          </span>
+        </Link>
+
+        {/* Socials */}
+        <div className="flex items-center gap-5">
           <Link
             href="https://github.com/engelsgermosen"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-primary transition-colors"
+            aria-label="GitHub"
+            className="text-muted-foreground transition-colors hover:text-primary"
           >
             <Github className="h-5 w-5" />
-            <span className="sr-only">GitHub</span>
           </Link>
           <Link
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/engels-germosen-4a08b5354/"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-primary transition-colors"
+            aria-label="LinkedIn"
+            className="text-muted-foreground transition-colors hover:text-primary"
           >
             <Linkedin className="h-5 w-5" />
-            <span className="sr-only">LinkedIn</span>
           </Link>
           <Link
             href="mailto:mrengels2648@gmail.com"
-            className="hover:text-primary transition-colors"
+            aria-label="Email"
+            className="text-muted-foreground transition-colors hover:text-primary"
           >
             <Mail className="h-5 w-5" />
-            <span className="sr-only">Email</span>
           </Link>
+        </div>
+
+        {/* Copyright */}
+        <div className="font-mono text-[0.8rem] text-[var(--text-faint)]">
+          © {new Date().getFullYear()} Engels Germosen · {t.footer.tagline}
         </div>
       </div>
     </footer>

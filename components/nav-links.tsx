@@ -1,43 +1,29 @@
 "use client";
 import Link from "next/link";
-import React from "react";
 import { useTranslation } from "./language-provider";
 
 export const NavLinks = () => {
   const { t } = useTranslation();
 
+  const links = [
+    { href: "/#experience", label: t.nav.experience },
+    { href: "/#projects", label: t.nav.projects },
+    { href: "/#skills", label: t.nav.skills },
+    { href: "/#certifications", label: t.nav.certifications },
+    { href: "/#about", label: t.nav.about },
+  ];
+
   return (
     <>
-      <Link
-        href="/#experience"
-        className="text-sm font-medium hover:text-primary transition-colors"
-      >
-        {t.nav.experience}
-      </Link>
-      <Link
-        href="/#projects"
-        className="text-sm font-medium hover:text-primary transition-colors"
-      >
-        {t.nav.projects}
-      </Link>
-      <Link
-        href="/#skills"
-        className="text-sm font-medium hover:text-primary transition-colors"
-      >
-        {t.nav.skills}
-      </Link>
-      <Link
-        href="/#certifications"
-        className="text-sm font-medium hover:text-primary transition-colors"
-      >
-        {t.nav.certifications}
-      </Link>
-      <Link
-        href="/#about"
-        className="text-sm font-medium hover:text-primary transition-colors"
-      >
-        {t.nav.about}
-      </Link>
+      {links.map((link) => (
+        <Link
+          key={link.href}
+          href={link.href}
+          className="text-[0.92rem] font-medium text-muted-foreground transition-colors hover:text-foreground"
+        >
+          {link.label}
+        </Link>
+      ))}
     </>
   );
 };

@@ -1,83 +1,129 @@
 "use client";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Github, Star } from "lucide-react";
 import Link from "next/link";
-import { Button } from "./ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
 import Image from "next/image";
 import { Projects } from "@/app/data/projects";
 import { useTranslation } from "./language-provider";
+import SectionHeading from "./section-heading";
+import Reveal from "./reveal";
+
+const TechPill = ({ label, small }: { label: string; small?: boolean }) => (
+  <span
+    className={`rounded-lg border border-border bg-[var(--surface-2)] font-mono text-muted-foreground ${
+      small ? "px-[10px] py-[5px] text-[0.72rem]" : "px-[11px] py-1.5 text-[0.76rem]"
+    }`}
+  >
+    {label}
+  </span>
+);
 
 const Project = () => {
-  const projectos = Projects;
   const { t, locale } = useTranslation();
+  const [featured, ...rest] = Projects;
 
   return (
-    <section id="projects" className="py-24 md:py-32 bg-muted/30 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#9c5bdb]/5 to-transparent pointer-events-none"></div>
-      <div className="container px-4 md:px-6 relative mx-auto">
-        <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
-          <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-5xl gradient-text">
-            {t.projects.title}
-          </h2>
-          <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            {t.projects.subtitle}
-          </p>
-        </div>
-        <div className="mx-auto grid justify-center gap-8 md:grid-cols-2 md:max-w-[64rem] xl:grid-cols-3 mt-16">
-          {projectos.map((project, index) => (
-            <Card
-              key={index}
-              className="group overflow-hidden shadow-custom hover:shadow-custom-hover transition-all duration-300 border-0 bg-card/80 backdrop-blur-sm animate-slide-up"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <CardHeader className="p-0">
-                <div className="overflow-hidden">
-                  <Image
-                    alt={project.title[locale]}
-                    className="aspect-video w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
-                    height={225}
-                    src={
-                      project.images[0] ||
-                      "/placeholder.svg?height=400&width=600"
-                    }
-                    width={600}
-                    quality={100}
-                  />
-                </div>
-              </CardHeader>
-              <CardContent className="p-6 grow">
-                <CardTitle className="text-xl mb-2">
-                  {project.title[locale]}
-                </CardTitle>
-                <p className="text-sm text-muted-foreground">
-                  {project.description[locale]}
-                </p>
-              </CardContent>
-              <CardFooter className="p-6 pt-0">
-                <Button
-                  asChild
-                  variant="outline"
-                  className="w-full rounded-full group"
+    <section
+      id="projects"
+      className="mx-auto max-w-[1160px] px-6 py-[clamp(56px,9vw,108px)]"
+    >
+      <SectionHeading
+        number="02"
+        eyebrow={t.projects.eyebrow}
+        title={t.projects.tagline}
+      />
+
+      {/* Featured project */}
+      {featured && (
+        <Reveal className="mb-6">
+          <div className="grid overflow-hidden rounded-[20px] border border-border bg-card transition-all duration-200 hover:border-primary hover:shadow-[0_24px_60px_-28px_var(--accent-glow)] [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
+            <div className="relative min-h-[280px] border-b border-border md:border-b-0 md:border-r">
+              <Image
+                src={featured.images[0] || "/placeholder.svg"}
+                alt={featured.title[locale]}
+                fill
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 580px"
+                className="object-cover"
+              />
+              <span className="absolute left-[18px] top-[18px] inline-flex items-center gap-[7px] rounded-full bg-primary px-[13px] py-1.5 font-mono text-[0.72rem] font-semibold text-primary-foreground">
+                <Star className="h-3 w-3 fill-current" /> {t.projects.featured}
+              </span>
+            </div>
+            <div className="p-[clamp(28px,4vw,42px)]">
+              <h3 className="mb-4 font-display text-[1.7rem] font-bold leading-tight tracking-tight text-foreground">
+                {featured.title[locale]}
+              </h3>
+              <p className="mb-[22px] leading-[1.7] text-muted-foreground">
+                {featured.description[locale]}
+              </p>
+              <div className="mb-6 flex flex-wrap gap-2">
+                {featured.tecnologies.map((tech) => (
+                  <TechPill key={tech} label={tech} />
+                ))}
+              </div>
+              <div className="flex flex-wrap items-center gap-5">
+                <Link
+                  href={`/project/${featured.id}`}
+                  className="group inline-flex items-center gap-2 font-mono text-[0.86rem] font-medium text-foreground transition-colors hover:text-primary"
                 >
+                  {t.projects.viewProject}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                {featured.github && (
                   <Link
-                    href={`/project/${project.id}`}
-                    className="flex items-center justify-center"
+                    href={featured.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 font-mono text-[0.86rem] font-medium text-muted-foreground transition-colors hover:text-primary"
                   >
-                    {t.projects.viewProject}
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <Github className="h-4 w-4" />
+                    {t.projects.viewGithub}
                   </Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
-      </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      )}
+
+      {/* Grid of remaining projects */}
+      <Reveal className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(290px,1fr))]">
+        {rest.map((project) => (
+          <Link
+            key={project.id}
+            href={`/project/${project.id}`}
+            className="group flex flex-col overflow-hidden rounded-[18px] border border-border bg-card transition-all duration-200 hover:-translate-y-[5px] hover:border-primary hover:shadow-[0_22px_50px_-26px_var(--accent-glow)]"
+          >
+            <div className="relative h-[158px] border-b border-border">
+              <Image
+                src={project.images[0] || "/placeholder.svg"}
+                alt={project.title[locale]}
+                fill
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 360px"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <div className="flex flex-1 flex-col p-6">
+              <h3 className="mb-2.5 font-display text-[1.22rem] font-semibold text-foreground">
+                {project.title[locale]}
+              </h3>
+              <p className="mb-[18px] flex-1 text-[0.94rem] leading-[1.62] text-muted-foreground line-clamp-4">
+                {project.description[locale]}
+              </p>
+              <div className="mb-[18px] flex flex-wrap gap-[7px]">
+                {project.tecnologies.slice(0, 5).map((tech) => (
+                  <TechPill key={tech} label={tech} small />
+                ))}
+              </div>
+              <span className="inline-flex items-center gap-2 font-mono text-[0.82rem] text-muted-foreground transition-colors group-hover:text-primary">
+                {t.projects.viewProject}
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+              </span>
+            </div>
+          </Link>
+        ))}
+      </Reveal>
     </section>
   );
 };
