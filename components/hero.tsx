@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <header
       id="top"
-      className="mx-auto grid max-w-[1160px] items-center gap-[clamp(40px,6vw,72px)] px-6 py-[clamp(48px,9vw,104px)] [grid-template-columns:repeat(auto-fit,minmax(320px,1fr))]"
+      className="mx-auto grid max-w-[1160px] grid-cols-1 items-center gap-[clamp(40px,6vw,72px)] px-6 py-[clamp(48px,9vw,104px)] md:grid-cols-2"
     >
       {/* Left column */}
       <div>
@@ -111,7 +111,7 @@ const Hero = () => {
 
       {/* Right column — profile */}
       <div className="flex justify-center animate-fade-up" style={{ animationDelay: "0.2s" }}>
-        <div className="relative aspect-square w-[min(360px,82vw)]">
+        <div className="relative aspect-square mx-auto w-full max-w-[280px] md:max-w-[360px]">
           {/* Glow */}
           <div
             className="absolute inset-[-14%] rounded-full opacity-75 blur-[30px] animate-float-glow"
