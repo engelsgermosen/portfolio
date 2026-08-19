@@ -19,28 +19,26 @@ interface ExperienceItem {
 const experience: ExperienceItem[] = [
   {
     id: 0,
-    company: "Dirección General de Impuestos Internos (DGII)",
+    company: "Cobalto Consulting",
     role: {
-      es: "Desarrollador de Software — Pasante",
-      en: "Software Developer Intern",
+      es: "Programador Full Stack",
+      en: "Full Stack Developer",
     },
-    period: "Oct 2025 – Feb 2026",
-    location: "Santo Domingo, DR",
+    period: "Jul 2026 – Present",
+    location: "República Dominicana — Remoto",
     bullets: {
       es: [
-        "Desarrollé herramientas de escritorio en .NET para automatizar la validación de facturas, reduciendo carga manual y mejorando la eficiencia operativa.",
-        "Automaticé flujos de validación repetitivos, minimizando intervención humana y tiempos de procesamiento.",
-        "Colaboré con equipos técnicos para integrar sistemas internos y mejorar la confiabilidad del servicio.",
-        "Apliqué estrategias de debugging y testing para garantizar estabilidad y rendimiento del sistema.",
+        "Desarrollo full stack de aplicaciones web, cubriendo interfaz de usuario, lógica de negocio y capa de datos.",
+        "Construcción de APIs y servicios backend, junto con su integración en el frontend.",
+        "Colaboración con el equipo en el ciclo completo: análisis de requerimientos, implementación, pruebas y despliegue.",
       ],
       en: [
-        "Developed .NET-based desktop tools to automate invoice validation processes, reducing manual workload and improving operational efficiency.",
-        "Automated repetitive service validation workflows, minimizing human intervention and reducing processing time.",
-        "Collaborated with technical teams to integrate internal systems and improve service reliability.",
-        "Applied debugging and testing strategies to ensure system stability and performance.",
+        "Full stack development of web applications, covering user interface, business logic and data layer.",
+        "Built backend APIs and services, along with their frontend integration.",
+        "Collaborated with the team across the full lifecycle: requirements analysis, implementation, testing and deployment.",
       ],
     },
-    tecnologies: [".NET", "C#", "SQL Server", "Azure DevOps"],
+    tecnologies: ["React", "Tailwind CSS", "TypeScript", ".NET", "PostgreSQL"],
   },
   {
     id: 1,
@@ -63,6 +61,31 @@ const experience: ExperienceItem[] = [
       ],
     },
     tecnologies: ["Flutter", "Supabase", "Dart"],
+  },
+  {
+    id: 2,
+    company: "Dirección General de Impuestos Internos (DGII)",
+    role: {
+      es: "Desarrollador de Software — Pasante",
+      en: "Software Developer Intern",
+    },
+    period: "Oct 2025 – Feb 2026",
+    location: "Santo Domingo, DR",
+    bullets: {
+      es: [
+        "Desarrollé herramientas de escritorio en .NET para automatizar la validación de facturas, reduciendo carga manual y mejorando la eficiencia operativa.",
+        "Automaticé flujos de validación repetitivos, minimizando intervención humana y tiempos de procesamiento.",
+        "Colaboré con equipos técnicos para integrar sistemas internos y mejorar la confiabilidad del servicio.",
+        "Apliqué estrategias de debugging y testing para garantizar estabilidad y rendimiento del sistema.",
+      ],
+      en: [
+        "Developed .NET-based desktop tools to automate invoice validation processes, reducing manual workload and improving operational efficiency.",
+        "Automated repetitive service validation workflows, minimizing human intervention and reducing processing time.",
+        "Collaborated with technical teams to integrate internal systems and improve service reliability.",
+        "Applied debugging and testing strategies to ensure system stability and performance.",
+      ],
+    },
+    tecnologies: [".NET", "C#", "SQL Server", "Azure DevOps"],
   },
 ];
 
