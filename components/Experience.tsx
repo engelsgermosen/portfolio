@@ -38,7 +38,15 @@ const experience: ExperienceItem[] = [
         "Collaborated with the team across the full lifecycle: requirements analysis, implementation, testing and deployment.",
       ],
     },
-    tecnologies: ["React", "Tailwind CSS", "TypeScript", ".NET", "PostgreSQL"],
+    tecnologies: [
+      "React",
+      "Tailwind CSS",
+      "TypeScript",
+      "ASP .NET Core",
+      "PostgreSQL",
+      "Jira",
+      "AWS",
+    ],
   },
   {
     id: 1,
