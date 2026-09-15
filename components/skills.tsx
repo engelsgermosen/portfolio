@@ -64,6 +64,8 @@ const categories: ICategory[] = [
       { name: "Azure DevOps", level: 3 },
       { name: "Supabase", level: 4 },
       { name: "Postman", level: 4 },
+      { name: "Jira", level: 4 },
+      { name: "AWS", level: 2 },
     ],
   },
 ];

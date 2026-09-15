@@ -19,12 +19,33 @@ interface ExperienceItem {
 const experience: ExperienceItem[] = [
   {
     id: 0,
+    company: "Dirección General de Impuestos Internos (DGII)",
+    role: {
+      es: "Programador",
+      en: "Programmer",
+    },
+    period: "Sept 2025 – actualidad",
+    location: "Santo Domingo, DR",
+    bullets: {
+      es: [
+        "Desarrollé herramientas de escritorio en .NET para automatizar la validación de facturas, reduciendo carga manual y mejorando la eficiencia operativa.",
+        "Automaticé flujos de validación repetitivos, minimizando intervención humana y tiempos de procesamiento.",
+      ],
+      en: [
+        "Developed .NET-based desktop tools to automate invoice validation processes, reducing manual workload and improving operational efficiency.",
+        "Automated repetitive service validation workflows, minimizing human intervention and reducing processing time.",
+      ],
+    },
+    tecnologies: [".NET", "C#", "SQL Server", "Azure DevOps"],
+  },
+  {
+    id: 1,
     company: "Cobalto Consulting",
     role: {
       es: "Programador Full Stack",
       en: "Full Stack Developer",
     },
-    period: "Jul 2026 – Present",
+    period: "Jun 2026 – Sept 2026",
     location: "República Dominicana — Remoto",
     bullets: {
       es: [
@@ -49,7 +70,7 @@ const experience: ExperienceItem[] = [
     ],
   },
   {
-    id: 1,
+    id: 2,
     company: "Self-Employed",
     role: { es: "Desarrollador Freelance", en: "Freelance Software Developer" },
     period: "Oct 2025 – Present",
@@ -71,7 +92,7 @@ const experience: ExperienceItem[] = [
     tecnologies: ["Flutter", "Supabase", "Dart"],
   },
   {
-    id: 2,
+    id: 3,
     company: "Dirección General de Impuestos Internos (DGII)",
     role: {
       es: "Desarrollador de Software — Pasante",
@@ -123,7 +144,7 @@ const Experience = () => {
               }}
             />
             <div className="rounded-2xl border border-border bg-card p-[26px_28px] transition-all duration-200 hover:translate-x-[3px] hover:border-primary">
-              <div className="mb-2 flex flex-wrap items-baseline justify-between gap-[10px]">
+              <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2.5">
                 <h3 className="font-display text-[1.28rem] font-semibold text-foreground">
                   {exp.role[locale]}
                 </h3>
@@ -135,7 +156,7 @@ const Experience = () => {
               <div className="mb-1 font-medium text-muted-foreground">
                 {exp.company}
               </div>
-              <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-[var(--text-faint)]">
+              <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-(--text-faint)">
                 <span className="inline-flex items-center gap-1.5">
                   <Calendar className="h-3.5 w-3.5" />
                   {exp.period}
