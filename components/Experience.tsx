@@ -27,16 +27,10 @@ const experience: ExperienceItem[] = [
     period: "Sept 2025 – actualidad",
     location: "Santo Domingo, DR",
     bullets: {
-      es: [
-        "Desarrollé herramientas de escritorio en .NET para automatizar la validación de facturas, reduciendo carga manual y mejorando la eficiencia operativa.",
-        "Automaticé flujos de validación repetitivos, minimizando intervención humana y tiempos de procesamiento.",
-      ],
-      en: [
-        "Developed .NET-based desktop tools to automate invoice validation processes, reducing manual workload and improving operational efficiency.",
-        "Automated repetitive service validation workflows, minimizing human intervention and reducing processing time.",
-      ],
+      es: [],
+      en: [],
     },
-    tecnologies: [".NET", "C#", "SQL Server", "Azure DevOps"],
+    tecnologies: [".NET", "C#", "Oracle", "Azure DevOps"],
   },
   {
     id: 1,
